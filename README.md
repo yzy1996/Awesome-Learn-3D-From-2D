@@ -41,7 +41,7 @@ The function $f_{\theta}$ is the minimizer of a reconstruction objective $\mathc
 > Click to see the details.
 
 - Multi-View 3D Reconstruction
-  - Method: [Multi-View Stereo (MVS)](./Multi-View Stereo (MVS))
+  - Method: [Multi-View Stereo (MVS)](./Multi-View%20Stereo%20(MVS))
   - Method: Neural Implicit Volume Reconstruction
   - Method: Neural Implicit Surface Reconstruction
 
