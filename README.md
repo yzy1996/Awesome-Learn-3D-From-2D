@@ -4,51 +4,31 @@ A collection of resources on learning 3D object from 2D images.
 
 
 
-
-
-
-
 [toc]
 
 ## Introduction
 
-alias: image-based 3D reconstruction
+> Alias: image-based 3D reconstruction
 
+==[Impact & sustained attention]== 3D reconstruction from multiple RGB images is a fundamental problem in computer vision with various applications in robotics, graphics, animation, virtual reality, and more. Recently, significant advances have been made towards complete reconstruction (geometry and appearance/texture) from an RGB image input.
 
+==[Problem introduction]== The reconstruction is often accompanied by representation, and the whole process is under the assumptions of known materials, viewpoints, and lighting conditions. If the materials, viewpoints, and lighting are not known, this will be generally an ill-posed problem because combinations of geometry, materials, viewpoints, and lighting can produce exactly the same photographs (**ambiguity**). As a result, without further assumptions, no single algorithm can correctly reconstruct the 3D geometry from photographs alone.
 
-significant advances have been made towards complete geometric reconstruction from an RGB image input.
+==[Old MVS]== Multi-View Stereo (MVS) methods are a classic branch to solve this tough challenge.
 
+==[Novel neural methods]== Beyond methods of ~~traditional representation~~ (voxel, grid, mesh) and ~~relied on 3D supervision~~, the recent popular approaches utilizing neural implicit representation (coordinate-based neural networks) yeild state-of-the-art performance because they tend to produce **smoothness bias of neural networks**. The key idea behind is to use compact, memory efficient multi-layer perceptrons (MLPs) to parameterize implicit shape representations such as occupancy or signed distance fields (SDF). 
 
+Some [works](./3D Reconstruction from Multi-View Images/Surface | Rendering) use differentiable <u>surface rendering</u> to reconstruct scenes from multi-view images. Neural radiance fields (NeRFs) achieved impressive novel view synthesis results with <u>volume rendering</u> techniques. Some latest efforts <u>combine surface and volume rendering</u> by expressing volume density as a function of the underlying 3D surface, which in turn improves scene geometry.
 
-given a set of photographs of an object or a scene, estimate the most likely 3D shape that explains those photographs, under the assumptions of known materials, viewpoints, and lighting conditions.
-
-![image-20211121113331345](https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/20211121113332.png)
-
-
-
-existing methods:
-
-- rely on explicit supervision
-
-
-
-Feature: ambiguities
-
-
-
-If the materials, viewpoints, and lighting are not known, this will be generally an ill-posed problem because combinations of geometry, materials, viewpoints, and lighting can produce exactly the same photographs (**ambiguity**). As a result, without further assumptions, no single algorithm can correctly reconstruct the 3D geometry from photographs alone.
-
-
-
-GIven a photograph of a scene, one can infer the underlying geometric structures and identify object and structure semantics, even from a partial, single view observation.
-
-
-
-Some methods consider 3D semantic reconstruction and instance reconstruction independently. 
+==[Goal & future]== The ultimate goal is to infer the underlying geometric structures and identify object and structure semantics, even from a partial, single view observation.
 
 
 
 ### Problem Statement
+
+given a set of photographs of an object or a scene, estimate the most likely 3D shape that explains those photographs, under the assumptions of known materials, viewpoints, and lighting conditions.
+
+<img src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/20211121113332.png" alt="image from" style="zoom:50%;" />
 
 Let $\mathbf{I} = \{I_k, k=1, \dots, n\}$ be a set of $n \ge 1$ RGB images of one or multiple objects $X$. 3D reconstruction can be summarized as the process of learning a predictor $f_\theta$ that can infer a shape $\hat{X}$ that is as close as possible to the unknown shape $X$.
 
@@ -56,34 +36,42 @@ The function $f_{\theta}$ is the minimizer of a reconstruction objective $\mathc
 
 
 
-### Methods
+## Research Branch
 
-Multi-view Stereo (MVS) is the general term given to a group of techniques that use stereo correspondence as their main cue and use more than two images. **An MVS algorithm is only as good as the quality of the input images and camera parameters.** A generic MVS pipeline is；
+> Click to see the details.
 
-- collect images,
-- compute camera parameters for each image,
-- reconstruct the 3D geometry of the scene from the set of images and corresponding camera parameters,
-- optionally reconstruct the materials of the scene.
+- Multi-View 3D Reconstruction
+  - Method: [Multi-View Stereo (MVS)](./Multi-View Stereo (MVS))
+  - Method: Neural Implicit Volume Reconstruction
+  - Method: Neural Implicit Surface Reconstruction
 
+- Novel-View Synthesis (NVS)
 
+- Single-Image Reconstruction (SIR)
 
-#### > compute the camera parameters
+- 3D-Aware Generation
 
-> Camera Models, ref to 
+- Predict Camera Parameters
 
-Structure from Motion (SfM)
-
-
-
-
-
-predict depth
-
-Revisiting single image depth estimation: Toward higher resolution maps with accurate object boundaries
+- Predict depth
 
 
 
+> 生成新视角需要先还原3D shape吗?
 
+
+
+### Extra & Aforementioned limitations
+
+large and more complex scenes
+
+scenes captured from sparse viewpoints
+
+The core is ambiguities.
+
+3D semantic reconstruction
+
+instance reconstruction
 
 
 
@@ -98,6 +86,8 @@ Multi-View Stereo: A Tutorial
 [Image-based 3D Object Reconstruction: State-of-the-Art and Trends in the Deep Learning Era](https://arxiv.org/pdf/1906.06543.pdf)  
 *Xian-Feng Han, Hamid Laga, Mohammed Bennamoun*  
 **[`TPAMI 2019`]**
+
+
 
 ### Category
 
@@ -126,7 +116,7 @@ Multi-View Stereo: A Tutorial
 *Manuel Dahnert, Ji Hou, Matthias Nießner, Angela Dai*  
 **[`NeurIPS 2021`] (`TUM`)**
 
+Deep 3D Portrait from a Single Image
 
 
-## Main Research Group
 

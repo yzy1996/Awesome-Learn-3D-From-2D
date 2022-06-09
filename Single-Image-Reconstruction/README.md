@@ -1,8 +1,16 @@
 # <p align=center>`Single View Reconstruction`</p>
 
-Single-view 3D Object Reconstruction is to recover 3D information, such as shape and texture, of the object from a single image.
+**Single-view 3D Object Reconstruction is to recover 3D information, such as shape and texture, of the object from a single image.**
+
+
 
 Impact: 3D scene analysis, robot navigation, and virtual/augmented reality
+
+
+
+？这个话题 reconstruction 跟 synthesis 有很多区别吗？
+
+
 
 
 

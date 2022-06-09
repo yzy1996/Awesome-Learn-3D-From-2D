@@ -6,6 +6,14 @@
 
 
 
+> Camera Models, ref to 
+
+Structure from Motion (SfM)
+
+
+
+
+
 random forests
 
 RANSAC 
@@ -64,11 +72,7 @@ Euler angles, axis-angle, SO(3) rotation matrices and quaternions
 
 ## New idea
 
-
-
 雾天去预测每增加环境干扰，对无人驾驶复杂环境有帮助
-
-
 
 
 
@@ -100,9 +104,9 @@ Multiple view geometry in computer vision
 
 
 
-[(SfM) Modeling the World from Internet Photo Collections](http://phototour.cs.washington.edu/ModelingTheWorld_ijcv07.pdf)
-
-[IJCV 2007]
+- [(SfM) Modeling the World from Internet Photo Collections](http://phototour.cs.washington.edu/ModelingTheWorld_ijcv07.pdf)  
+  *Noah Snavely, Steven M. Seitz & Richard Szeliski*  
+  **[`IJCV 2007`]**
 
 > autonomously generate camera poses
 
@@ -116,8 +120,6 @@ Multiple view geometry in computer vision
 [Geometric loss functions for camera pose regression with deep learning](https://arxiv.org/pdf/1704.00390.pdf)  
 **[`CVPR 2017`] (`Cambridge`)**  
 *Alex Kendall, Roberto Cipolla*
-
-
 
 > introduce novel loss functions to reduce the gap in accuracy 
 >
