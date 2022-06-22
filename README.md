@@ -14,7 +14,7 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 **[`Conference/Journal Year`] (`Institution`)** [[Github](link)] [[Project](link)]
 ```
 
-:exclamation: Now you can use this [script](https://github.com/yzy1996/Python-Code/tree/master/Python%2BarXiv) to automatically generate the above text.
+:smile: Now you can use this [script](https://github.com/yzy1996/Python-Code/tree/master/Python%2BarXiv) to automatically generate the above text.
 
 :warning: To better display the formula, you'd better local download this file and view it.
 
