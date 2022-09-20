@@ -22,7 +22,7 @@ Estimating object or scene geometery from only a single RGB image view
 
 
 
-所以这一笔记一定是和 Category-specific 笔记密切相关的
+所以这一笔记一定是和 Category-Specific 笔记密切相关的
 
 
 
@@ -76,6 +76,12 @@ landmark consistency
 [Self-Supervised 3D Mesh Reconstruction from Single Images](https://openaccess.thecvf.com/content/CVPR2021/html/Hu_Self-Supervised_3D_Mesh_Reconstruction_From_Single_Images_CVPR_2021_paper.html)  
 *Tao Hu, Liwei Wang, Xiaogang Xu, Shu Liu, Jiaya Jia*    
 **[`CVPR 2021`]**	**(`CUHK`)**
+
+
+
+
+
+
 
 
 

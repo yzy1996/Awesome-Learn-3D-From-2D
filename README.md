@@ -16,7 +16,7 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 
 :smile: Now you can use this [script](https://github.com/yzy1996/Python-Code/tree/master/Python%2BarXiv) to automatically generate the above text.
 
-:warning: To better display the formula, you'd better local download this file and view it.
+
 
 ## Introduction
 
@@ -47,6 +47,8 @@ Let $\mathbf{I} = \{I_k, k=1, \dots, n\}$ be a set of $n \ge 1$ RGB images of on
 The function $f_{\theta}$ is the minimizer of a reconstruction objective $\mathcal{L}(\mathbf{I}) = d(f_\theta (\mathbf{I}), X)$. Here, $d(\cdot)$ is a certain measure of distance between the target shape $X$ and the reconstructed shape $f(\mathbf{i})$.
 
 
+
+The futher problem is recover a 3D shape with texture and mesh from a single view observation. This need utilize a pre-trained 3D GAN by searching for a latent space that best resembles the target mesh. As we all know that the pre-trained GAN encapsulates rich 3D semantics in terms of mesh geometry and texture, searching within the GAN manifold thus naturally regularizes the realness and fidelity of the reconstruction.
 
 ## Research Branch
 
@@ -132,3 +134,6 @@ Deep 3D Portrait from a Single Image
 
 
 
+
+
+polycam app
