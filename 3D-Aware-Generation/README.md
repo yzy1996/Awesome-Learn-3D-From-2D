@@ -30,53 +30,56 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 
 ## Introduction
 
-2D GAN 的训练集是一系列2D图像（如celeba），机理是从一个隐向量经过一个生成器映射到一幅图像，通常这些图像是单视角的。3D-aware的含义是指对于同一object的多视角图像，因此机理依旧是从一个隐向量经过一个生成器，再结合一个视角信号，得到在某一视角下的2D图像，然后通过修改视角信号，可以得到不同视角下的2D图像 (满足这一定义的都会归属到这一笔记文档)。generate 3D-consistent images with explicitly controllable camera poses.
+<details><summary>中文介绍</summary>
+<p>
+**背景：**计算机视觉和图形学中的一大任务就是生成真实且可编辑的图像。过去几年，2D生成模型（GAN，VAE，Diffusion Model…）展示出了强大的能力，可以说已经很好地解决了这一难题。同时对3D生成的需求也在日益增强（现实世界就是3D的，3D信息带了更多应用），2D的载体是图像，3D的载体也应该是一种表征方式（Mesh, Grid Voxel, Point Cloud, Implicit…），在这里先笼统地称作3D表征。类比从2D数据集中学2D信息，从3D数据集中学3D信息变得理所当然，但3D数据集不像2D数据集那么多，且获取成本高，因此如何继续从2D数据集中挖掘潜在的3D信息就成为了关键。
 
-主流方法有两种，1）一种是不生成中间3D shape，直接到多视角图像，通过某些latent feature直接控制了视角，这种属于隐式控制（不是直接的相机参数）。2）另一种是生成一个中间3D shape结构，3D结构都有了，再加上一个显式的相机参数，就可以物理渲染出任意视角的2D图像；这样的效果会更好一些，相当于是先升维后再降维。
+**研究方向：**从上述背景介绍中就可以看出几条出路，1⃣️ 3D表征方式，哪种方式更好？表达能力强，速度快，代价低。2⃣️ 3D数据集有没有办法更容易制作呢？3⃣️ 如何从2D数据集中学？是从单物体多视角数据集（结构化的）学还是单物体单视角数据集（非结构化的）学？4⃣️ 生成的质量怎么样？是否能看出角度感，是否真实且高清。
 
-> To achieve this goal, the literature mainly follows two directions:
->
-> - The first line of work utilize 3D-aware features to represent a scene, and apply a neural render for realistic image synthesis. 
+**问题定义：**我们希望从2D数据集出发以实现任务。一方面我们想生成3D模型（可以360度旋转），另一方面3D模型 + 多个相机角度 = 多角度2D图像，前者可以被称为3D生成，后者可以被称为具有3D感知的图像生成（多视角图像生成）。多提一嘴，过拟合的方式是3D重建，泛化后是3D生成。
 
-本笔记重点关注第二种方法。
+这里有一种特殊情况，就像2D生成一样，生成的对象结果由一个隐变量控制，这里也可以考虑用一个额外的隐变量控制角度，这种就没有生成3D模型。
+
+我们最终想得到一个生成模型 $G$，给定一个隐变量 $z$ 和一个相机参数 $\theta$，生成一张图像，这两个变量都是可控的，前者决定生成的对象，后者决定生成的角度。3D模型 + 显式的相机参数就可以物理渲染出任意视角的2D图像，这样的效果会更好一些，相当于是先升维后再降维。
+$$
+G: (z \in \mathbb{R}^{d}, \theta \in \mathbb{R}^{3}) \mapsto I \in \mathbb{R}^{H \times W \times 3}
+$$
+**本文范畴：**其他会简略提及，主要是侧重通过无规则2D图像学3D隐式表征得到3Dshape然后给定相机参数渲染出任意角度的图像。
 
 
 
-（为什么要研究这个问题?）
+=如何得到3D模型 (3D mesh)
 
+</p>
+</details>
+
+
+
+<details><summary>English Intro</summary>
+<p>
 Reconstructing 3D objects from 2D images is one of the mainstream problems in 3D computer vision. It is important for controlling the generation process to be able to manipulate some semantic attributes in the generated results. Among these attributes, 3D information such as pose has attracted much more attention.
 
-（这个问题如何研究?）
+**3D-aware image synthesis** aims to generate images of objects from multiple views by learning a 3D representation with explicit control over the camera pose. (generate 3D-consistent images with explicitly controllable camera poses.)
 
-Methods to solve can be categorized into two types: 1) learn a generator synthesise images under different disentangled feature; 2) learn a 3D shape representation as an intermediate process and cast images with differentiable rendering. 后者将问题分解为[如何通过2D数据表征3D] [如何从3D投影回去2D] 
+The key **challenge** is to do generate multi-view consistent and high-quality images.
 
-（如果这个问题很难，有什么办法缓解吗?）
+performmulti-view joint optimization
+
+Methods to solve can be categorized into two types: 1) learn a generator synthesise images under different disentangled feature; 2) learn a 3D shape representation as an intermediate process and cast images with differentiable rendering.
 
 To ease the problem, researchers normally learn a 3D prior from a collection within a category, and also utilize some supervision signals, such as multiview images, pose labels, landmarks, and masks.
 
-
-
 > **Problem settings:**
 
-Given unstructured 2D image collections, 3D-aware image generation methods aim to learn a generative model that can explicitly control the camera viewpoint of the generated content. The generator G which takes a random noise z and a camera pose \theta as input, and outputs an image I under pose \theta:
+Given unstructured 2D image collections, 3D-aware image generation methods aim to learn a generative model that can explicitly control the camera viewpoint of the generated content. The generator G which takes a random noise $z$ and a camera pose $\theta$ as input, and outputs an image $I$ under pose $\theta$:
 
 <div align=center><img width="300" src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/mylatex20220419_011353.svg"/></div>
 
-**The goal is to** provide parametric control and photo-realistic synthesis.
+**The goal is to** achieve parametric control and photo-realistic synthesis.
 
 learning direct 3D representation of scenes and synthesize images under physical-based rendering process (volumetric rendering) to achieve more strict 3D consistency.
 
-
-
-> difference between **3D reconstruction**
-
-重建一般是针对单一物体的，而生成是可以生成更多的，甚至是不真实存在的。
-
 > difference between **multi-view generation from single image**
-
-可以通过多张图重建，也可以从单张图重建。而一般训练肯定是多图的，测试是单图的；另一方面，也可以对一类物体进行训练，得到一个3D prior，其实这也可以看成是多图训练。
-
-
 
 > **Training Strategy**
 
@@ -92,29 +95,18 @@ differentiable renderer allow one to infer 3D from 2D images without requiring 3
 
 
 
-## Research Branch
+existing volume rendering based methods suffer from the **resolution** and the **view-inconsistency** issues
 
-- To improve the surface quality
-
-view-consistent 3D geometry
-
-
-
-
+</p>
+</details>
 
 
 
 > **Related subtitles**
 
-- Pose-Disentangled2D GANs
+- Pose-Disentangled 2D GANs
 - Unsupervised 3D Reconstruction and Generationfrom 2D Images
 - 3D prior for GANs
-
-
-
-existing volume rendering based methods suffer from the **resolution** and the **view-inconsistency** issues
-
-
 
 
 
@@ -281,10 +273,6 @@ object-centric->multi objects
 ### without 3D shape
 
 > just for background comparison.
-
-
-
-
 
 
 
