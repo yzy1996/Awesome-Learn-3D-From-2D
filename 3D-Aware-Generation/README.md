@@ -219,7 +219,7 @@ object-centric->multi objects
 
 - [3D Shape Induction from 2D Views of Multiple Objects](https://arxiv.org/abs/1612.05872)  
   *Matheus Gadelha, Subhransu Maji, Rui Wang*  
-  **[`CVPR 2017`] ** 
+  **[`CVPR 2017`]** 
 
 - [HoloGAN: Unsupervised learning of 3D representations from natural images](https://arxiv.org/abs/1904.01326)  
   *Thu Nguyen-Phuoc, Chuan Li, Lucas Theis, Christian Richardt, Yong-Liang Yang*  
