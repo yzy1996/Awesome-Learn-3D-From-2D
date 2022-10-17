@@ -29,7 +29,7 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 <p>
 
 **背景：** 计算机视觉和图形学中的一大任务就是生成真实且可编辑的图像。过去几年，2D生成模型（GAN，VAE，Diffusion Model…）展示出了强大的能力，可以说已经很好地解决了这一难题。同时对3D生成的需求也在日益增强（现实世界就是3D的，3D信息带了更多应用），2D的载体是图像，3D的载体也应该是一种表征方式（Mesh, Grid Voxel, Point Cloud, Implicit…），在这里先笼统地称作3D表征。类比从2D数据集中学2D信息，从3D数据集中学3D信息变得理所当然，但3D数据集不像2D数据集那么多，且获取成本高，因此如何继续从2D数据集中挖掘潜在的3D信息就成为了关键。
- 
+
 **研究方向：** 从上述背景介绍中就可以看出几条出路，1⃣️ 3D表征方式，哪种方式更好？表达能力强，速度快，代价低。2⃣️ 3D数据集有没有办法更容易制作呢？3⃣️ 如何从2D数据集中学？是从单物体多视角数据集（结构化的）学还是单物体单视角数据集（非结构化的）学？4⃣️ 生成的质量怎么样？是否能看出角度感，是否真实且高清。
 
 **问题定义：** 我们希望从2D数据集出发以实现任务。一方面我们想生成3D模型（可以360度旋转），另一方面3D模型 + 多个相机角度 = 多角度2D图像，前者可以被称为3D生成，后者可以被称为具有3D感知的图像生成（多视角图像生成）。多提一嘴，过拟合的方式是3D重建，泛化后是3D生成。
@@ -60,6 +60,8 @@ Reconstructing 3D objects from 2D images is one of the mainstream problems in 3D
 The key **challenge** is to do generate multi-view consistent and high-quality images.
 
 performmulti-view joint optimization
+
+investigate how to incorporate 3D representation into generativemodels.
 
 Methods to solve can be categorized into two types: 1) learn a generator synthesise images under different disentangled feature; 2) learn a 3D shape representation as an intermediate process and cast images with differentiable rendering.
 
@@ -117,7 +119,7 @@ object-centric->multi objects
 
 #### `Implicit Representation`
 
-> For more information, plz ref [INR](https://github.com/yzy1996/Artificial-Intelligence/tree/main/1-Machine-Learning/1-Generative-Models/3D%20Representation%20%26%20Reconstruction/Neural%20Implicit%20Surfaces).
+> For more information, plz ref [INR](https://github.com/yzy1996/Artificial-Intelligence/tree/main/1-Machine-Learning/1-Generative-Models/3D%20Representation%20%26%20Reconstruction#NeRF).
 
 - [Unsupervised Learning of Probably Symmetric Deformable 3D Objects from Images in the Wild](https://arxiv.org/abs/1911.11130)  
   *Shangzhe Wu, Christian Rupprecht, Andrea Vedaldi*  
@@ -161,7 +163,7 @@ object-centric->multi objects
   
 - [CAMPARI: Camera-Aware Decomposed Generative Neural Radiance Fields](https://arxiv.org/abs/2103.17269)  
   *Michael Niemeyer, Andreas Geiger*  
-  **[`arXiv 2021`] (`MPI`)** [[Code](https://github.com/autonomousvision/campari)]
+  **[`3DV 2021`] (`MPI`)** [[Code](https://github.com/autonomousvision/campari)]
   
 - [Do 2D GANs Know 3D Shape? Unsupervised 3D shape reconstruction from 2D Image GANs](https://arxiv.org/abs/2011.00844)  
   *Xingang Pan, Bo Dai, Ziwei Liu, Chen Change Loy, Ping Luo*  
@@ -201,19 +203,40 @@ object-centric->multi objects
   
 - [GRAM-HD: 3D-Consistent Image Generation at High Resolution with Generative Radiance Manifolds](https://arxiv.org/abs/2206.07255)  
   *Jianfeng Xiang, Jiaolong Yang, Yu Deng, Xin Tong*  
-  **[`arXiv 2022`] (``)** 
+  **[`arXiv 2022`] (`USTC`)** 
+
+- [Improving 3D-aware Image Synthesis with A Geometry-aware Discriminator](https://arxiv.org/abs/2209.15637)  
+  *Zifan Shi, Yinghao Xu, Yujun Shen, Deli Zhao, Qifeng Chen, Dit-Yan Yeung*  
+  **[`NeurIPS 2022`]**
+
+- [EpiGRAF: Rethinking training of 3D GANs](https://arxiv.org/abs/2206.10535)  
+  *Ivan Skorokhodov, Sergey Tulyakov, Yiqun Wang, Peter Wonka*  
+  **[`NeurIPS 2022`]**
 
 
 
 #### `Voxel`
 
+- [3D Shape Induction from 2D Views of Multiple Objects](https://arxiv.org/abs/1612.05872)  
+  *Matheus Gadelha, Subhransu Maji, Rui Wang*  
+  **[`CVPR 2017`] ** 
+
 - [HoloGAN: Unsupervised learning of 3D representations from natural images](https://arxiv.org/abs/1904.01326)  
   *Thu Nguyen-Phuoc, Chuan Li, Lucas Theis, Christian Richardt, Yong-Liang Yang*  
   **[`ICCV 2019`] (`University of Bath`)**
 
+- [Inverse Graphics GAN: Learning to Generate 3D Shapes from Unstructured 2D Data](https://arxiv.org/abs/2002.12674)  
+  *Sebastian Lunz, Yingzhen Li, Andrew Fitzgibbon, Nate Kushman*  
+  **[`arXiv 2020`]**
+
 - [BlockGAN: Learning 3D Object-aware Scene Representations from Unlabelled Images](https://arxiv.org/abs/2002.08988)  
   *Thu Nguyen-Phuoc, Christian Richardt, Long Mai, Yong-Liang Yang, Niloy Mitra*  
   **[`NeurIPS 2020`] (`University of Bath, Adobe`)**
+  
+- [VoxGRAF: Fast 3D-Aware Image Synthesis with Sparse Voxel Grids](https://arxiv.org/abs/2206.07695)  
+  *Katja Schwarz, Axel Sauer, Michael Niemeyer, Yiyi Liao, Andreas Geiger*  
+  **[`arXiv 2022`]**
+  
 
 
 
@@ -229,7 +252,7 @@ object-centric->multi objects
   
 - [Leveraging 2D Data to Learn Textured 3D Mesh Generation](https://arxiv.org/abs/2004.04180)  
   *Paul Henderson, Vagia Tsiminaki, Christoph H. Lampert*  
-  **[`CVPR 2020`]** ()
+  **[`CVPR 2020`]**
 
 
 
@@ -276,17 +299,6 @@ predefined 3D face model
 
 
 
-[3D Shape Induction from 2D Views of Multiple Objects](https://arxiv.org/abs/1612.05872)  
-*Matheus Gadelha, Subhransu Maji, Rui Wang*  
-**[`CVPR 2017`] (``)** 
-
-[Unsupervised Learning of 3D Structure from Images](https://arxiv.org/abs/1607.00662)  
-*Danilo Jimenez Rezende, S. M. Ali Eslami, Shakir Mohamed, Peter Battaglia, Max Jaderberg, Nicolas Heess*  
-**[`NeurIPS 2016`] (``)**
-
-[Inverse Graphics GAN: Learning to Generate 3D Shapes from Unstructured 2D Data](https://arxiv.org/abs/2002.12674)  
-*Sebastian Lunz, Yingzhen Li, Andrew Fitzgibbon, Nate Kushman*  
-**[`arXiv 2020`] (``)** 
 
 
 
