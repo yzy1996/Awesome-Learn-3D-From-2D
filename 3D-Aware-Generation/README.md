@@ -99,6 +99,12 @@ object-centric->large scale scene
 
 object-centric->multi objects
 
+
+
+radiance fields-based methods have higher quality and better 3D consistency but have difficulties training for high-resolution images due to the expensive rendering process of radiance fields. GIRAFFE improved the training and rendering efficiency by combining NeRF with a Convent-based renderer. It produced severe view-inconsistent artifacts due to its particular network designs.
+
+
+
 </p>
 </details>
 
