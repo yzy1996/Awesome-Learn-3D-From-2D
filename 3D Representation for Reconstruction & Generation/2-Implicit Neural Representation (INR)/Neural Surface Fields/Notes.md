@@ -10,7 +10,9 @@ zero level-set
 
 学出很多等高面，然后0登高面就是表面
 
+有关 Level set equation 的解释，$\phi(x(t), t) = 0$
 
+https://profs.etsmtl.ca/hlombaert/levelset/
 
 
 
