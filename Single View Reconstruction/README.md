@@ -28,6 +28,36 @@ Estimating object or scene geometery from only a single RGB image view
 
 ## Introduction
 
+划分为：3D supervised| 2D supervised | unsupervised 
+
+
+
+3D attributes, including camera, shape, texture, and light
+
+
+
+重建什么？object's shape and texture
+
+只需要一张图片吗？不，还需要2D image-level annotation
+
+方法的发展进步：
+
+- fit the parameters of a 3D prior morphable model (3DMM)
+
+> building these prior models is expensive and time-consuming
+
+- deep model 3D supervised reconstruction
+
+> 需要3D ground truth, attributes or annotation
+
+- 2D supervised reconstruction
+
+> key modules is a differentiable render 
+
+
+
+
+
 更多的是指训练好的模型具有这个能力，而训练过程是通过多视角图像的
 
 

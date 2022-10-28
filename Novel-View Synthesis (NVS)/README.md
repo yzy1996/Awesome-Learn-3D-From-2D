@@ -10,7 +10,47 @@ related project:
 
 [paperswithcode/Novel View Synthesis](paperswithcode/Novel View Synthesis)
 
+
+
 ## Introduction
+
+NVS techniques：可以先分成好几类
+
+- explicitly reconstruction 
+
+  只去构建表面
+
+  然后这些方法无法生成高保真的结果
+
+- volume-based representation 
+
+相关工作有：Local Light Field Fusion， NeRF，Soft 3D Reconstruction for View Synthesis， SRN，Stereo Magnification: Learning View Synthesis using Multiplane Images
+
+  model了整个空间，并且用volume rendering的方法生成图片
+
+  这样带来的好处是：全局是连续的，都有了梯度，连续也可以高保真，
+
+Neural Radiance Field (NeRF)
+
+
+
+现存的一些方法是需要 每张图片的相机的参数，这个参数可以来自于
+
+- 训练数据就有
+
+- 通过一些技术估计 （例如 Structure-from-Motion）COLMAP
+
+  
+
+
+
+所以来了，怎么真正纯粹地只从RGB图像中生成呢？
+
+- NeRF--
+
+
+
+
 
 **The goal of novel view synthesis**: is to generate photo-realistic images of the same scene at novel viewpoints given a set (one or few) of posed images of a scene. A more challenging problem is NVS given just a single view. 
 
