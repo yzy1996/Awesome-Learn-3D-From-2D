@@ -22,17 +22,17 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 
 > Alias: image-based 3D reconstruction
 
-==[Impact & sustained attention]== 3D reconstruction from multiple RGB images is a fundamental problem in computer vision with various applications in robotics, graphics, animation, virtual reality, and more. Recently, significant advances have been made towards complete reconstruction (geometry and appearance/texture) from an RGB image input.
+**[Impact & sustained attention]** 3D reconstruction from multiple RGB images is a fundamental problem in computer vision with various applications in robotics, graphics, animation, virtual reality, and more. Recently, significant advances have been made towards complete reconstruction (geometry and appearance/texture) from an RGB image input.
 
-==[Problem introduction]== The reconstruction is often accompanied by representation, and the whole process is under the assumptions of known materials, viewpoints, and lighting conditions. If the materials, viewpoints, and lighting are not known, this will be generally an ill-posed problem because combinations of geometry, materials, viewpoints, and lighting can produce exactly the same photographs (**ambiguity**). As a result, without further assumptions, no single algorithm can correctly reconstruct the 3D geometry from photographs alone.
+**[Problem introduction]** The reconstruction is often accompanied by representation, and the whole process is under the assumptions of known materials, viewpoints, and lighting conditions. If the materials, viewpoints, and lighting are not known, this will be generally an ill-posed problem because combinations of geometry, materials, viewpoints, and lighting can produce exactly the same photographs (**ambiguity**). As a result, without further assumptions, no single algorithm can correctly reconstruct the 3D geometry from photographs alone.
 
-==[Old MVS]== Multi-View Stereo (MVS) methods are a classic branch to solve this tough challenge.
+**[Old MVS]** Multi-View Stereo (MVS) methods are a classic branch to solve this tough challenge.
 
-==[Novel neural methods]== Beyond methods of ~~traditional representation~~ (voxel, grid, mesh) and ~~relied on 3D supervision~~, the recent popular approaches utilizing neural implicit representation (coordinate-based neural networks) yeild state-of-the-art performance because they tend to produce **smoothness bias of neural networks**. The key idea behind is to use compact, memory efficient multi-layer perceptrons (MLPs) to parameterize implicit shape representations such as occupancy or signed distance fields (SDF). 
+**[Novel neural methods]** Beyond methods of ~~traditional representation~~ (voxel, grid, mesh) and ~~relied on 3D supervision~~, the recent popular approaches utilizing neural implicit representation (coordinate-based neural networks) yeild state-of-the-art performance because they tend to produce **smoothness bias of neural networks**. The key idea behind is to use compact, memory efficient multi-layer perceptrons (MLPs) to parameterize implicit shape representations such as occupancy or signed distance fields (SDF). 
 
 Some works use differentiable <u>surface rendering</u> to reconstruct scenes from multi-view images. Neural radiance fields (NeRFs) achieved impressive novel view synthesis results with <u>volume rendering</u> techniques. Some latest efforts <u>combine surface and volume rendering</u> by expressing volume density as a function of the underlying 3D surface, which in turn improves scene geometry.
 
-==[Goal & future]== The ultimate goal is to infer the underlying geometric structures and identify object and structure semantics, even from a partial, single view observation.
+**[Goal & future]** The ultimate goal is to infer the underlying geometric structures and identify object and structure semantics, even from a partial, single view observation.
 
 
 
