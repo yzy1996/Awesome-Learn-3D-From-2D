@@ -63,12 +63,9 @@ integrating the density and color at regular intervals along each viewing ray.
 
 <div align="center"><img width="500" src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/20210722155353.png" ></div>
 
-$$
-\begin{aligned}
-\hat{C}(\mathbf{r}) &=\sum_{i=1}^{N} T_{i}\left(1-\exp \left(-\sigma_{\theta}\left(\mathbf{x}_{i}\right) \delta_{i}\right)\right) c_{\theta}\left(\mathbf{x}_{i}, \mathbf{d}\right) \\
-T_{i} &=\exp \left(-\sum_{j<i} \sigma_{\theta}\left(\mathbf{x}_{j}\right) \delta_{j}\right)
-\end{aligned}
-$$
+```math
+\hat{C}(\mathbf{r}) =\sum_{i=1}^{N} T_{i}\left(1-\exp \left(-\sigma_{\theta}\left(\mathbf{x}_{i}\right) \delta_{i}\right)\right) c_{\theta}\left(\mathbf{x}_{i}, \mathbf{d}\right) \quad T_{i}=\exp \left(-\sum_{j < i} \sigma_{\theta}\left(\mathbf{x}_{j}\right) \delta_{j}\right)
+```
 
 **Advantage of NeRF:**
 
