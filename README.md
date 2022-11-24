@@ -2,7 +2,7 @@
 
 A collection of resources on learning 3D object from 2D images. 
 
-> Alias: image-based 3D reconstruction
+> Alias: image-based 3D reconstruction / Rendering
 
 
 
@@ -51,6 +51,7 @@ The futher problem is recover a 3D shape with texture and mesh from a single vie
 - [Single View Reconstruction](./Single%20View%20Reconstruction)
 - [3D-Aware-Generation](./3D-Aware-Generation)
 - [Predict Camera & Depth](./Predict%20Camera%20&%20Depth)
+- [3D Style-Transfer & Editing](./Style-Transfer%20&%20Editing)
 
 
 
