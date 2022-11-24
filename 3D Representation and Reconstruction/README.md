@@ -176,3 +176,6 @@ Given 2D image observations, these approaches aim to infer a 3D-structure-aware 
 
 
 
+[Image-based 3D Object Reconstruction: State-of-the-Art and Trends in the Deep Learning Era](https://arxiv.org/pdf/1906.06543.pdf)  
+*Xian-Feng Han, Hamid Laga, Mohammed Bennamoun*  
+**[`TPAMI 2019`]**

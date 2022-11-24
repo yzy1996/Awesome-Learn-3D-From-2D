@@ -1,8 +1,8 @@
 # <p align=center>`Learn 3D object from 2D images` </p>
 
-A collection of resources on learning 3D object from 2D images.
+A collection of resources on learning 3D object from 2D images. 
 
-
+> Alias: image-based 3D reconstruction
 
 ## Contributing
 
@@ -19,8 +19,6 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 
 
 ## Introduction
-
-> Alias: image-based 3D reconstruction
 
 **[Impact & sustained attention]** 3D reconstruction from multiple RGB images is a fundamental problem in computer vision with various applications in robotics, graphics, animation, virtual reality, and more. Recently, significant advances have been made towards complete reconstruction (geometry and appearance/texture) from an RGB image input.
 
@@ -52,90 +50,33 @@ The function $f_{\theta}$ is the minimizer of a reconstruction objective $\mathc
 
 The futher problem is recover a 3D shape with texture and mesh from a single view observation. This need utilize a pre-trained 3D GAN by searching for a latent space that best resembles the target mesh. As we all know that the pre-trained GAN encapsulates rich 3D semantics in terms of mesh geometry and texture, searching within the GAN manifold thus naturally regularizes the realness and fidelity of the reconstruction.
 
+
+
 ## Research Branch
 
-> Click to see the details.
+> Click subfolders to see the rich literatures and details. 
 
 - Multi-View 3D Reconstruction
   - Method: [Multi-View Stereo (MVS)](./Multi-View%20Stereo%20(MVS))
-  - Method: Neural Implicit Volume Reconstruction
-  - Method: Neural Implicit Surface Reconstruction
-
-- Novel-View Synthesis (NVS)
-
-- Single-Image Reconstruction (SIR)
-
-- 3D-Aware Generation
-
-- Predict Camera Parameters
-
-- Predict depth
+  - Method: [3D representation](./3D%20Representation%20and%20Reconstruction)
+- [Novel-View Synthesis (NVS)](./Novel-View%20Synthesis%20(NVS))
+- [Single View Reconstruction](./Single%20View%20Reconstruction)
+- [3D-Aware-Generation](./3D-Aware-Generation)
+- [Predict Camera & Depth](./Predict%20Camera%20&%20Depth)
 
 
 
-> 生成新视角需要先还原3D shape吗?
+### Limitations
+
+- large and more complex scenes
+
+- scenes captured from sparse viewpoints
+
+- the core is ambiguities.
+
+- 3D semantic reconstruction
+
+- instance reconstruction
 
 
 
-### Extra & Aforementioned limitations
-
-large and more complex scenes
-
-scenes captured from sparse viewpoints
-
-The core is ambiguities.
-
-3D semantic reconstruction
-
-instance reconstruction
-
-
-
-## Literature
-
-### Survey
-
-Multi-View Stereo: A Tutorial  
-*Yasutaka Furukawa, Carlos Hernández*  
-**[`2015`]**
-
-[Image-based 3D Object Reconstruction: State-of-the-Art and Trends in the Deep Learning Era](https://arxiv.org/pdf/1906.06543.pdf)  
-*Xian-Feng Han, Hamid Laga, Mohammed Bennamoun*  
-**[`TPAMI 2019`]**
-
-
-
-### Category
-
-<span id="DOVE"></span>
-[DOVE: Learning Deformable 3D Objects by Watching Videos](https://arxiv.org/pdf/2107.10844.pdf)  
-*Shangzhe Wu, Tomas Jakab, Christian Rupprecht, Andrea Vedaldi*  
-**[`Arxiv 2021`]**
-
-
-
-**learn from RGB**
-
-[3D Scene Reconstruction with Multi-layer Depth and Epipolar Transformers]()  
-*Daeyun Shin, Zhile Ren, Erik B. Sudderth, Charless C. Fowlkes*  
-**[`ICCV 2019`] (`UCI, Georgia`)**
-
-[CoReNet: Coherent 3D scene reconstruction from a single RGB image](https://arxiv.org/pdf/2004.12989.pdf)  
-*Stefan Popov, Pablo Bauszat, Vittorio Ferrari*  
-**[`ECCV 2020`] ()**
-
-[3D Scene Reconstruction from a Single Viewport](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123670052.pdf)  
-*Maximilian Denninger, Rudolph Triebel*  
-**[`ECCV 2020`] (`DLR, TUM`)**
-
-[Panoptic 3D Scene Reconstruction From a Single RGB Image](https://arxiv.org/pdf/2111.02444.pdf)  
-*Manuel Dahnert, Ji Hou, Matthias Nießner, Angela Dai*  
-**[`NeurIPS 2021`] (`TUM`)**
-
-Deep 3D Portrait from a Single Image
-
-
-
-
-
-polycam app

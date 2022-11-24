@@ -9,3 +9,25 @@ Multi-view Stereo (MVS) is the general term given to a group of techniques that 
 - reconstruct the 3D geometry of the scene from the set of images and corresponding camera parameters,
 - optionally reconstruct the materials of the scene.
 
+
+
+多视几何好改
+
+
+
+
+
+这个和nues的区别在哪里。
+
+## Literature
+
+### Survey
+
+Multi-View Stereo: A Tutorial  
+*Yasutaka Furukawa, Carlos Hernández*  
+**[`2015`]**
+
+
+
+
+

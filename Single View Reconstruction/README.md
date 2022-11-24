@@ -107,15 +107,23 @@ landmark consistency
 *Tao Hu, Liwei Wang, Xiaogang Xu, Shu Liu, Jiaya Jia*    
 **[`CVPR 2021`]**	**(`CUHK`)**
 
+[CoReNet: Coherent 3D scene reconstruction from a single RGB image](https://arxiv.org/abs/2004.12989)  
+*Stefan Popov, Pablo Bauszat, Vittorio Ferrari*  
+**[`ECCV 2020`] ()**
 
+[3D Scene Reconstruction from a Single Viewport](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123670052.pdf)  
+*Maximilian Denninger, Rudolph Triebel*  
+**[`ECCV 2020`] (`DLR, TUM`)**
 
+[Panoptic 3D Scene Reconstruction From a Single RGB Image](https://arxiv.org/pdf/2111.02444.pdf)  
+*Manuel Dahnert, Ji Hou, Matthias Nießner, Angela Dai*  
+**[`NeurIPS 2021`] (`TUM`)**
 
+Deep 3D Portrait from a Single Image
 
-
-
-
-
-
+[3D Scene Reconstruction with Multi-layer Depth and Epipolar Transformers]()  
+*Daeyun Shin, Zhile Ren, Erik B. Sudderth, Charless C. Fowlkes*  
+**[`ICCV 2019`] (`UCI, Georgia`)**
 
 
 
