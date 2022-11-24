@@ -27,7 +27,8 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 <img width=80% src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/20201204115352.png"/>
     <p>Figure 1</p>
 </div>
- **In a nutshell / Short and sweet**: A Neural Radiance Field captures a volumetric representation of a specific scene within the weights of a neural network. NeRF represents the 3D geometry and appearance of a scene as a continuous 5D to 2D mapping function and uses volume rendering to synthesize novel views. The training process relies on multiple images with given camera poses.
+
+**In a nutshell / Short and sweet**: A Neural Radiance Field captures a volumetric representation of a specific scene within the weights of a neural network. NeRF represents the 3D geometry and appearance of a scene as a continuous 5D to 2D mapping function and uses volume rendering to synthesize novel views. The training process relies on multiple images with given camera poses.
 
 ## Introduction
 
