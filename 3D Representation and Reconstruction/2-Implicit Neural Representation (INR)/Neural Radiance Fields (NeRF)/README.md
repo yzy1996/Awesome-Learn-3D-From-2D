@@ -1,10 +1,11 @@
 # <p align=center>`Neural Radiance Fields` </p>
 
-A collection of resources on neural radiance fields (NeRF). 
+A collection of resources on neural radiance fields (NeRF).  Related repos includes [awesome-NeRF](https://github.com/yenchenlin/awesome-NeRF) & [awesome-implicit-representations](https://github.com/vsitzmann/awesome-implicit-representations).
 
-related repos [awesome-NeRF](https://github.com/yenchenlin/awesome-NeRF) & [awesome-implicit-representations](https://github.com/vsitzmann/awesome-implicit-representations)
+---
 
 <details><summary><b>Contributing</b></summary><p>
+---
 
 Feedback and contributions are welcome! If you think I have missed out on something (or) have any suggestions (papers, implementations and other resources), feel free to pull a request or leave an issue. I will release the [latex-pdf version]() in the future. :arrow_down:markdown format:
 
@@ -27,15 +28,11 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 <img width=80% src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/20201204115352.png"/>
     <p>Figure 1</p>
 </div>
-**In a nutshell / Short and sweet**: A Neural Radiance Field captures a volumetric representation of a specific scene within the weights of a neural network. NeRF represents the 3D geometry and appearance of a scene as a continuous 5D to 2D mapping function and uses volume rendering to synthesize novel views. The training process relies on multiple images with given camera poses.
+ **In a nutshell / Short and sweet**: A Neural Radiance Field captures a volumetric representation of a specific scene within the weights of a neural network. NeRF represents the 3D geometry and appearance of a scene as a continuous 5D to 2D mapping function and uses volume rendering to synthesize novel views. The training process relies on multiple images with given camera poses.
 
 ## Introduction
 
-因为能生成各种视角的图像，这样就能通过多视角的RGB图像构成重建Loss直接训练。
-
-
-
-**The pipeline of NeRF**:
+因为能生成各种视角的图像，这样就能通过多视角的RGB图像构成重建Loss直接训练。**The pipeline of NeRF**:
 
 Let's assume that there is a 3D cubic space with an object in it. Any coordinate $(x,y,z)$​​​​ in this space can be queried whether it is occupied by the entity parts of this object. This occupancy is represented by 'volume density' $(\sigma)$​ in NeRF. Although the density in reality is a definite value of 0 or 1, it is expressed here as a probability. We also care about the color of this object specifically the surface. This color $(r,g,b)$​​​​ depends on the camera direction, so we need to query both the coordinate and the viewing direction $(\theta, \phi)$​​​. 
 
@@ -72,8 +69,6 @@ $$
 T_{i} &=\exp \left(-\sum_{j<i} \sigma_{\theta}\left(\mathbf{x}_{j}\right) \delta_{j}\right)
 \end{aligned}
 $$
-
-
 
 **Advantage of NeRF:**
 
