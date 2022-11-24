@@ -1,17 +1,22 @@
 # <p align=center>`Neural Radiance Fields` </p>
 
-> 这一个笔记主要围绕NeRF相关展开，通过相关文献，整理从为什么NeRF会诞生，到NeRF还存在的问题。
->
-> 学nerf不得不看的几个链接
->
-> https://dellaert.github.io/NeRF/
->
-> https://paperswithcode.com/method/nerf
->
-> https://github.com/vsitzmann/awesome-implicit-representations
->
-> related link yenchen's [awesome-NeRF](https://github.com/yenchenlin/awesome-NeRF)
+A collection of resources on neural radiance fields (NeRF). 
 
+related repos [awesome-NeRF](https://github.com/yenchenlin/awesome-NeRF) & [awesome-implicit-representations](https://github.com/vsitzmann/awesome-implicit-representations)
+
+<details><summary><b>Contributing</b></summary><p>
+
+Feedback and contributions are welcome! If you think I have missed out on something (or) have any suggestions (papers, implementations and other resources), feel free to pull a request or leave an issue. I will release the [latex-pdf version]() in the future. :arrow_down:markdown format:
+
+``` markdown
+[Paper Name](abs link)  
+*[Author 1](homepage), Author 2, and Author 3*
+**[`Conference/Journal Year`] (`Institution`)** [[Github](link)] [[Project](link)]
+```
+
+:smile: Now you can use this [script](https://github.com/yzy1996/Python-Code/tree/master/Python%2BarXiv) to automatically generate the above text.
+
+</p></details>
 
 
 [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis](https://arxiv.org/pdf/2003.08934.pdf)  
@@ -22,8 +27,6 @@
 <img width=80% src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/20201204115352.png"/>
     <p>Figure 1</p>
 </div>
-[Code-Tensorflow](https://github.com/bmild/nerf)  [Code-PyTorch](https://github.com/yenchenlin/nerf-pytorch)  [Code-PyTorch](https://github.com/krrish94/nerf-pytorch)
-
 **In a nutshell / Short and sweet**: A Neural Radiance Field captures a volumetric representation of a specific scene within the weights of a neural network. NeRF represents the 3D geometry and appearance of a scene as a continuous 5D to 2D mapping function and uses volume rendering to synthesize novel views. The training process relies on multiple images with given camera poses.
 
 ## Introduction
@@ -70,14 +73,6 @@ T_{i} &=\exp \left(-\sum_{j<i} \sigma_{\theta}\left(\mathbf{x}_{j}\right) \delta
 \end{aligned}
 $$
 
-有多种采样方式
-
-$p \in \mathbb{R}^3$
-
-
-
-采样了点后再进行颜色融合（$\alpha$-composition ），
-
 
 
 **Advantage of NeRF:**
@@ -94,31 +89,15 @@ While NeRF does not require object masks for training due to its volumetric radi
 
 
 
-volume density does not admit accurate surface reconstruction
-
-NeRF use volume rendering by learning alpha-compositing of a radiance field along rays.
-
-high fidelity
-
-
-
 **Disadvantage of NeRF:**
 
-他的目的是做 novel-view synthesis，而不是 surface construction，只需要合成的照片正确就行，shape是否学的精确是不重要的，因为存在多解，找一个即可，而精确还原是只有一个解的。
+他的目的是做 novel-view synthesis，而不是 surface construction，只需要合成的照片正确就行，shape是否学的精确是不重要的，因为存在多解，找一个即可，而精确还原是只有一个解的。对于NERF怎么找表面是通过一个 level-set，等水平面，因为已经学到了 density field
 
-对于NERF怎么找表面是通过一个 level-set，等水平面，因为已经学到了 density field
-
-can only render novel views of a particular scene.
+同时原版nerf是针对但场景的
 
 
 
-
-
-opacity value
-
-
-
-我们可以作如下概括，
+**我们可以作如下概括：**
 
 - 为何NeRF惊艳到了所有人
   - brutal simplicity (不讲道理地简单)，just an MLP taking in a 5D coordinate and outputting density and color
@@ -415,28 +394,32 @@ commonly-used single object datasets, Photoshape and image collections
 - CelebA
 - CelebA-HQ
 
-more challenging single-object
+- CompCars
 
-CompCars
+- LSUN Churches
 
-LSUN Churches
-
-FFHQ
-
-
-
-Coordinate-based Image
-
-
-
-To be sorted
-
-Object-Centric Neural Scene Rendering
-
-
+- FFHQ
 
 
 
 ## Code
 
-https://github.com/Jittor/JNeRF
+|                             name                             |                            stars                             |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+|     [instant-ngp](https://github.com/NVlabs/instant-ngp)     | ![](https://img.shields.io/github/stars/NVlabs/instant-ngp?style=social) |
+|            [nerf](https://github.com/bmild/nerf)             | ![](https://img.shields.io/github/stars/bmild/nerf?style=social) |
+|  [nerf-pytorch](https://github.com/yenchenlin/nerf-pytorch)  | ![](https://img.shields.io/github/stars/yenchenlin/nerf-pytorch?style=social) |
+| [Nerfstudio](https://github.com/nerfstudio-project/nerfstudio) | ![](https://img.shields.io/github/stars/nerfstudio-project/nerfstudio?style=social) |
+|  [multinerf](https://github.com/google-research/multinerf)   | ![](https://img.shields.io/github/stars/google-research/multinerf?style=social) |
+|        [nerf_pl](https://github.com/kwea123/nerf_pl)         | ![](https://img.shields.io/github/stars/kwea123/nerf_pl?style=social) |
+|  [NeRF-Factory](https://github.com/kakaobrain/NeRF-Factory)  | ![](https://img.shields.io/github/stars/kakaobrain/NeRF-Factory?style=social) |
+|   [nerf-pytorch](https://github.com/krrish94/nerf-pytorch)   | ![](https://img.shields.io/github/stars/krrish94/nerf-pytorch?style=social) |
+|           [JNeRF](https://github.com/Jittor/JNeRF)           | ![](https://img.shields.io/github/stars/Jittor/JNeRF?style=social) |
+
+
+
+## Links
+
+https://dellaert.github.io/NeRF/
+
+https://paperswithcode.com/method/nerf
