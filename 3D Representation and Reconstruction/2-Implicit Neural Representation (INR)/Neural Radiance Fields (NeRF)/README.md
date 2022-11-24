@@ -1,12 +1,10 @@
 # <p align=center>`Neural Radiance Fields` </p>
 
-A collection of resources on neural radiance fields (NeRF).  Related repos includes [awesome-NeRF](https://github.com/yenchenlin/awesome-NeRF) & [awesome-implicit-representations](https://github.com/vsitzmann/awesome-implicit-representations).
+A collection of resources on neural radiance fields (NeRF).  Related repos include [awesome-NeRF](https://github.com/yenchenlin/awesome-NeRF) & [awesome-implicit-representations](https://github.com/vsitzmann/awesome-implicit-representations).
 
 ---
 
 <details><summary><b>Contributing</b></summary><p>
----
-
 Feedback and contributions are welcome! If you think I have missed out on something (or) have any suggestions (papers, implementations and other resources), feel free to pull a request or leave an issue. I will release the [latex-pdf version]() in the future. :arrow_down:markdown format:
 
 ``` markdown
@@ -19,6 +17,7 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 
 </p></details>
 
+---
 
 [NeRF: Representing Scenes as Neural Radiance Fields for View Synthesis](https://arxiv.org/pdf/2003.08934.pdf)  
 **[`ECCV 2020`] (`UCB, UCSD`)**  
