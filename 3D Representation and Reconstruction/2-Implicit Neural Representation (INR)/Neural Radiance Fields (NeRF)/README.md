@@ -360,9 +360,7 @@ iNeRF and NeRF-- optimize camera pose along with other parameters when training 
 **(1) positional encoding**
 
 Low dimensional input needs to be mapped to higher-dimensional features to be able to represent complex signals when $f$ is parameterized with a neural network. Specifically, we element-wise apply a pre-defined **positional encoding** to each component of $\mathbf{x}$ and $\mathbf{d}$.
-$$
-\gamma(t, L) = \left(\sin(2^0t\pi), \cos(2^0t\pi), \dots, \sin(2^{L}t\pi), \cos(2^{L}t\pi)\right),
-$$
+$$\gamma(t, L) = \left(\sin(2^0t\pi), \cos(2^0t\pi), \dots, \sin(2^{L}t\pi), \cos(2^{L}t\pi)\right)$$
 where $t$ is a scalar input, and $L$ the number of frequency octaves.
 
 **(2) SIREN**
@@ -385,11 +383,8 @@ commonly-used single object datasets, Photoshape and image collections
 - Cats
 - CelebA
 - CelebA-HQ
-
 - CompCars
-
 - LSUN Churches
-
 - FFHQ
 
 
