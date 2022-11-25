@@ -1,208 +1,100 @@
 # <p align=center>`Implicit Neural Representation` </p>
 
-[Neural Implicit Representations for 3D Vision and Beyond by Dr. Andreas Geiger](https://www.youtube.com/watch?v=jennURL-gtQ)
+[Talk: Neural Implicit Representations for 3D Vision by Dr. Andreas Geiger](https://www.youtube.com/watch?v=jennURL-gtQ)
 
-https://github.com/vsitzmann/awesome-implicit-representations
+[awesome-implicit-representations](https://github.com/vsitzmann/awesome-implicit-representations)
 
 ## 1. Introduction
 
-*The original idea of augmenting neural networks with coordinates information was proposed in CPPN. The largest popularity of INRs is observed in 3D deep lesrning, where it provides a cheap and continuous way to represent a 3D shape compared to mesh/voxel/pointcloud-based ones.*[^ 1] 
 
+<details><summary>中文介绍</summary><p>
 
+NeRF 等一系列方法需要稠密的视角输入（50-150张），因此如何松弛这个要求就是需要解决的目标
+大类名称叫 coordinate-based neural models ，具体方法叫 neural implicit functions (parameterized with neural networks)，然后又分化成 SDF, occupancy field, radiance field。positional encoding
+
+</p></details>
+
+---
+
+[INR-GAN] The original idea of augmenting neural networks with coordinates information was proposed in CPPN. The largest popularity of INRs is observed in 3D deep learning, where it provides a cheap and continuous way to represent a 3D shape compared to mesh/voxel/pointcloud-based ones.
 
 **Implicit Neural Representation (INR)** is a promising new avenue of representing general signals by learning a continuous function that, parameterized as a neural network (MLP), maps the domain of a signal to its codomain; the mapping from spatial coordinates of an image to its pixel values, for example.
 
-be capable of conveying fine details in a high dimensional signal. 
-
-benefit: in terms of preserving high frequency information through the encoding of coordinate positions as an array of Fourier features
-
-<details><summary>中文介绍</summary>
-<p>
-NeRF 等一系列方法需要稠密的视角输入（50-150张），因此如何松弛这个要求就是需要解决的目标
-大类名称叫 coordinate-based neural models ，具体方法叫 neural implicit functions (parameterized with neural networks)，然后又分化成 SDF, occupancy field, radiance field
-
-
-</p>
-</details>
-
-
-
-
-
 Instead of storing the signal values corresponding to the coordinate grid, this method train a neural network with continuous activation functions to approximate the coordinate-to-value mapping.
-
-|                                      |      |      |
-| ------------------------------------ | ---- | ---- |
-| network-as-a-representation approach |      |      |
-|                                      |      |      |
-|                                      |      |      |
-
-也可以叫 neural implicit function
-
-
 
 It's a powerful tool for reconstructing 3D structure from multi-view 2D supervision via fitting their 3D models to the multi-view images using differentiable rendering.
 
+Implicit neural representations are a new and promising method to represent images and scenes.
 
+## 2. Research Branches
 
-几个经典网络：
+> Please click the subfolders to see the literatures and details.
 
-- Occupancy Networks
+- [Neural Radiance Fields (NeRF)](./Neural%20Radiance%20Fields%20(NeRF))
+- [Neural Surface Fields](./Neural%20Surface%20Fields)
+- [Deep Implicit Templates](./Deep%20Implicit%20Templates)
+- [Tricks](./Tricks)
+  - Finding an efficient way to encode coordinates positions
+  - Be capable of conveying fine details in a high dimensional signal
 
-  They model a probability function of a voxel being occupied by a 3D shape and typically employ a coordinate-based decoder that operates on top of single-view images. They also use the multi-resolution surface extraction method.
-
-- DeepSDF 
-
-  It models a signed distance function 
-
-
-
-shape and appearance of objects
-
-local parts
-
-
-
-Local deep implicit functions for3d shape
-
-Learning shape templates with structured implicit functions
-
-
-
-full 3D scenes
-
-Deep local shapes: Learning local sdf priors for detailed 3d reconstruction
-
-Neural unsigned distance fields for implicit function learning
-
-Local implicit grid representations for 3d scenes
-
-Convolutional occupancy networks
-
-
-
-
-
-## 2. Research Branch/Direction
-
-- Finding an efficient way to encode coordinates positions
-
-Fourier features let networks learn high frequency functions in low dimensional domains
-
-(SIREN )Implicit neural representations with periodic activation functions
-
-> SIREN replaced the popular ReLU activation function withsine functions with modulated frequencies, showing greatsingle scene fitting results.
-
-[](https://arxiv.org/abs/2004.04180)
-
-
-
-- Accelerate 
-
-> Implicit neural representations are a new and promising method to represent images and scenes. Implicit neural representations enable good performance on task like view synthesis. Those networks generate an image of scene pixel-by-pixel and are therefore computationally expensive. 
-
-
-
-require a lot of memory and computations
-
-- 
-
-
-
-
-
-利用一种Codebook Representation
-
-
-
-
+- Others
+  - [+Meta Initialization](./+Meta)
+  
 
 ## 3. Literature
 
-Occupancy networks: Learning 3d reconstruction in function space  
-[CVPR 2019]
+- [Learning Implicit Fields for Generative Shape Modeling](https://arxiv.org/abs/1812.02822)  
+  **[`CVPR 2019`]** *Zhiqin Chen, Hao Zhang*  
+- [Occupancy Networks: Learning 3D Reconstruction in Function Space](https://arxiv.org/abs/1812.03828)  
+  **[`CVPR 2019`]** *Lars Mescheder, Michael Oechsle, Michael Niemeyer, Sebastian Nowozin, Andreas Geiger*  
+- [SDFDiff: Differentiable Rendering of Signed Distance Fields for 3D Shape Optimization](https://arxiv.org/abs/1912.07109)  
+  **[`CVPR 2020`]** *Yue Jiang, Dantong Ji, Zhizhong Han, Matthias Zwicker*  
+- [From Uniform Continuity to Absolute Continuity](https://arxiv.org/abs/1011.6471)  
+  **[`arXiv 2010`]** *Kai Yang, Chenhong Zhu*
+- [HVTR: Hybrid Volumetric-Textural Rendering for Human Avatars](https://arxiv.org/abs/2112.10203)  
+  **[`3DV 2022`]** *Tao Hu, Tao Yu, Zerong Zheng, He Zhang, Yebin Liu, Matthias Zwicker*  
+- [Why neural networks find simple solutions: the many regularizers of geometric complexity](https://arxiv.org/abs/2209.13083)  
+**[`NeurIPS 2022`]** *Benoit Dherin, Michael Munn, Mihaela Rosca, David G. T. Barrett*  
+- [Local Deep Implicit Functions for 3D Shape](https://arxiv.org/abs/1912.06126)  
+  **[`CVPR 2020`]** *Kyle Genova, Forrester Cole, Avneesh Sud, Aaron Sarna, Thomas Funkhouser*  
+- [CoCoNets: Continuous Contrastive 3D Scene Representations](https://arxiv.org/abs/2104.03851)  
+  **[`arXiv 2021`]** *Shamit Lal, Mihir Prabhudesai, Ishita Mediratta, Adam W. Harley, Katerina Fragkiadaki* 
+- [UWED: Unsigned Distance Field for Accurate 3D Scene Representation and Completion](https://arxiv.org/abs/2203.09167)  
+  **[`arXiv 2022`]** *Jean Pierre Richa, Jean-Emmanuel Deschaud, François Goulette, Nicolas Dalmasso* 
+- [The First Airborne Experiment of Sparse Microwave Imaging: Prototype System Design and Result Analysis](https://arxiv.org/abs/2110.10675)  
+  **[`arXiv 2021`]**  *Zhe Zhang, Bingchen Zhang, Chenglong Jiang, Xingdong Liang, Longyong Chen, Wen Hong, Yirong Wu* 
+- [Implicit Gradient Neural Networks with a Positive-Definite Mass Matrix for Online Linear Equations Solving](https://arxiv.org/abs/1703.05955)  
+  **[`arXiv 2017`]** *Ke Chen* 
+- [CoordX: Accelerating Implicit Neural Representation with a Split MLP Architecture](https://arxiv.org/abs/2201.12425)  
+  **[`ICLR 2022`]** *Ruofan Liang, Hongyi Sun, Nandita Vijaykumar* 
+- [In-Place Scene Labelling and Understanding with Implicit Scene Representation](https://arxiv.org/abs/2103.15875)  
+**[`ICCV 2021`]** *Shuaifeng Zhi, Tristan Laidlow, Stefan Leutenegger, Andrew J. Davison*
+- [Adversarial Generation of Continuous Images](https://arxiv.org/abs/2011.12026)  
+**[`CVPR 2021`]** *Ivan Skorokhodov, Savva Ignatyev, Mohamed Elhoseiny*
 
-Convolutional occupancy networks  
-[ECCV 2020]
+- [Learning Implicit Fields for Generative Shape Modeling](https://arxiv.org/abs/1812.02822)
+  **[`CVPR 2019`]** *Zhiqin Chen, Hao Zhang*
 
-3d u-net: learning dense volumetric segmentation from sparse annotation
+- [GABO: Graph Augmentations with Bi-level Optimization](https://arxiv.org/abs/2104.00722)
+  **[`arXiv 2021`]** *Heejung W. Chung, Avoy Datta, Chris Waites*
 
-Msg-gan: Multi-scale gradients for generative adversarial networks  
-[CVPR 2020]
+- [Meta-Learning 3D Shape Segmentation Functions](https://arxiv.org/abs/2110.03854)
+  **[`arXiv 2021`]** *Yu Hao, Yi Fang*
 
+- [Differentiable Volumetric Rendering: Learning Implicit 3D Representations without 3D Supervision](https://arxiv.org/abs/1912.07372)
+  **[`arXiv 2019`]** *Michael Niemeyer, Lars Mescheder, Michael Oechsle, Andreas Geiger*
 
+- [BiCo-Net: Regress Globally, Match Locally for Robust 6D Pose Estimation](https://arxiv.org/abs/2205.03536)
+  **[`IJCAI 2022`]** *Zelin Xu, Yichen Zhang, Ke Chen, Kui Jia*
 
-- [In-Place Scene Labelling and Understanding with Implicit Scene Representation](https://arxiv.org/pdf/2103.15875)  
-  *Shuaifeng Zhi, Tristan Laidlow, Stefan Leutenegger, Andrew J. Davison*  
-  **[` 2021`] (``)**
+- [Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations](https://arxiv.org/abs/1906.01618)
+  **[`arXiv 2019`]** *Vincent Sitzmann, Michael Zollhöfer, Gordon Wetzstein*
 
-Compositional pattern producing networks: A novel abstraction of development
+- [HybridPose: 6D Object Pose Estimation under Hybrid Representations](https://arxiv.org/abs/2001.01869)
+  **[`arXiv 2020`]** *Chen Song, Jiaru Song, Qixing Huang*
 
-An intriguing failing of convolutional neural networks and the coordconv solution
+- [Multiview Neural Surface Reconstruction by Disentangling Geometry and Appearance](https://arxiv.org/abs/2003.09852)
+  **[`arXiv 2020`]** *Lior Yariv, Yoni Kasten, Dror Moran, Meirav Galun, Matan Atzmon, Ronen Basri, Yaron Lipman*
 
-Pix2pose: Pixel-wise coordinate regression of objects for 6d pose estimation
-
-Hybridpose: 6d object pose estimation under hybrid representations
-
-Solov2: Dynamic, faster and stronger
-
-Location augmentation for cnn
-
-
-
-Nerf:Representing scenes as neural radiance fields for view synthesis
-
-Differentiable volumetric rendering: Learningimplicit 3d representations without 3d supervision
-
-Scene representation networks: Continuous 3dstructure-aware neural scene representations.
-
-Multiview neuralsurface reconstruction by disentangling geometry and appearance
-
-
-
-[Adversarial Generation of Continuous Images](https://arxiv.org/abs/2011.12026)  
-*Ivan Skorokhodov, Savva Ignatyev, Mohamed Elhoseiny*  
-**[`CVPR 2021`] (``)** 
-
-
-
-Learning implicit fields for generative shape modeling
-
-Deep meta functionals for shape representation
-
-
-
-[CoordX: Accelerating Implicit Neural Representation with a Split MLP Architecture](https://arxiv.org/abs/2201.12425)  
-*Ruofan Liang, Hongyi Sun, Nandita Vijaykumar*  
-**[`ICLR 2022`]**
-
-
-
-
-
-[^ 1]: INR-GAN
-
-
-
-
-
-
-
-这里面一个常用的部分叫 positional encoding
-
-This term is used to enhance the performance of coordinate-MLPs
-
-
-
-
-
-The major drawback of training coordinate-MLPs with raw input coordinates is their sub-optimal performance in learning high-frequency content. 
-
-**As a remedy**, recent studies empirically confirmed that projecting the coordinates to a higher dimensional space using sine and cosine functions of different frequencies allows coordinate-MLPs to learn high-frequency information **more effectively**.
-
-
-
-
-
-Fourier features let networks learn high frequency functions in low dimensional domains
-
+- [SOLO: A Simple Framework for Instance Segmentation](https://arxiv.org/abs/2106.15947)
+  **[`arXiv 2021`]** *Xinlong Wang, Rufeng Zhang, Chunhua Shen, Tao Kong, Lei Li*
