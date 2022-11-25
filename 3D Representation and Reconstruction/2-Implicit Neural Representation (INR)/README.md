@@ -72,29 +72,29 @@ Implicit neural representations are a new and promising method to represent imag
 - [Adversarial Generation of Continuous Images](https://arxiv.org/abs/2011.12026)  
 **[`CVPR 2021`]** *Ivan Skorokhodov, Savva Ignatyev, Mohamed Elhoseiny*
 
-- [Learning Implicit Fields for Generative Shape Modeling](https://arxiv.org/abs/1812.02822)
+- [Learning Implicit Fields for Generative Shape Modeling](https://arxiv.org/abs/1812.02822)  
   **[`CVPR 2019`]** *Zhiqin Chen, Hao Zhang*
 
-- [GABO: Graph Augmentations with Bi-level Optimization](https://arxiv.org/abs/2104.00722)
+- [GABO: Graph Augmentations with Bi-level Optimization](https://arxiv.org/abs/2104.00722)  
   **[`arXiv 2021`]** *Heejung W. Chung, Avoy Datta, Chris Waites*
 
-- [Meta-Learning 3D Shape Segmentation Functions](https://arxiv.org/abs/2110.03854)
+- [Meta-Learning 3D Shape Segmentation Functions](https://arxiv.org/abs/2110.03854)  
   **[`arXiv 2021`]** *Yu Hao, Yi Fang*
 
-- [Differentiable Volumetric Rendering: Learning Implicit 3D Representations without 3D Supervision](https://arxiv.org/abs/1912.07372)
+- [Differentiable Volumetric Rendering: Learning Implicit 3D Representations without 3D Supervision](https://arxiv.org/abs/1912.07372)  
   **[`arXiv 2019`]** *Michael Niemeyer, Lars Mescheder, Michael Oechsle, Andreas Geiger*
 
-- [BiCo-Net: Regress Globally, Match Locally for Robust 6D Pose Estimation](https://arxiv.org/abs/2205.03536)
+- [BiCo-Net: Regress Globally, Match Locally for Robust 6D Pose Estimation](https://arxiv.org/abs/2205.03536)  
   **[`IJCAI 2022`]** *Zelin Xu, Yichen Zhang, Ke Chen, Kui Jia*
 
-- [Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations](https://arxiv.org/abs/1906.01618)
+- [Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations](https://arxiv.org/abs/1906.01618)  
   **[`arXiv 2019`]** *Vincent Sitzmann, Michael Zollhöfer, Gordon Wetzstein*
 
-- [HybridPose: 6D Object Pose Estimation under Hybrid Representations](https://arxiv.org/abs/2001.01869)
+- [HybridPose: 6D Object Pose Estimation under Hybrid Representations](https://arxiv.org/abs/2001.01869)  
   **[`arXiv 2020`]** *Chen Song, Jiaru Song, Qixing Huang*
 
-- [Multiview Neural Surface Reconstruction by Disentangling Geometry and Appearance](https://arxiv.org/abs/2003.09852)
+- [Multiview Neural Surface Reconstruction by Disentangling Geometry and Appearance](https://arxiv.org/abs/2003.09852)  
   **[`arXiv 2020`]** *Lior Yariv, Yoni Kasten, Dror Moran, Meirav Galun, Matan Atzmon, Ronen Basri, Yaron Lipman*
 
-- [SOLO: A Simple Framework for Instance Segmentation](https://arxiv.org/abs/2106.15947)
+- [SOLO: A Simple Framework for Instance Segmentation ](https://arxiv.org/abs/2106.15947) 
   **[`arXiv 2021`]** *Xinlong Wang, Rufeng Zhang, Chunhua Shen, Tao Kong, Lei Li*
