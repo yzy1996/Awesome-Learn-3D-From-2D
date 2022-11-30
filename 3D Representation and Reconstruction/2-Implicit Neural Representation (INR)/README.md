@@ -96,5 +96,5 @@ Implicit neural representations are a new and promising method to represent imag
 - [Multiview Neural Surface Reconstruction by Disentangling Geometry and Appearance](https://arxiv.org/abs/2003.09852)  
   **[`arXiv 2020`]** *Lior Yariv, Yoni Kasten, Dror Moran, Meirav Galun, Matan Atzmon, Ronen Basri, Yaron Lipman*
 
-- [SOLO: A Simple Framework for Instance Segmentation ](https://arxiv.org/abs/2106.15947) 
+- [SOLO: A Simple Framework for Instance Segmentation ](https://arxiv.org/abs/2106.15947)  
   **[`arXiv 2021`]** *Xinlong Wang, Rufeng Zhang, Chunhua Shen, Tao Kong, Lei Li*
