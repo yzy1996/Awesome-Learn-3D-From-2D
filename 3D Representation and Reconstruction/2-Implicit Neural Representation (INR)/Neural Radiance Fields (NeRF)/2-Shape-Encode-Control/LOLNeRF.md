@@ -33,6 +33,7 @@
 ## 3. 方法解析
 
 Loss就是这样简单的，第一个rgb就不多解释了，NeRF直接输出的颜色值
+
 $$
 \mathcal{L}_{\text {total }}=\mathcal{L}_{\text {rgb }}+\lambda_{\text {mask }} \mathcal{L}_{\text {mask }}+\lambda_{\text {hard }} \mathcal{L}_{\text {hard }}
 $$
@@ -56,6 +57,7 @@ $$
 ### 3.2 优化体密度Sigma，加约束
 
 拉普拉斯分布：一个非常尖峰的分布，类似于高斯，只不过高斯中间是平滑的，它这个更尖，概率上希望值落在中间最好，而中间的值就像高斯分布的均值一样，是预设的。如果追求稀疏的话，是可以用这个分布来约束，一个约束在0，一个约束在1，然后加和到一起，实现0，1约束。
+
 $$
 p(x) = e^{-|x|} + e^{-|1-x|}
 \\
@@ -71,9 +73,11 @@ $$
 > 但这一点，nerf–这种可以一起估计相机参数了，因为分布区间很小，比较好估计。同时对比GAN模型，GAN就是可以增加相机的参数，用对抗去学。
 
 具体的优化步骤：
+
 $$
 \underset{\mathbf{T}, \mathbf{K}}{\arg \min }\|\ell-P(\mathbf{p} \mid \mathbf{T}, \mathbf{K})\|^2
 $$
+
 采用 莱文伯格-马夸特方法 (Levenberg–Marquardt algorithm)：非线性最小化的数值解法。是高斯牛顿法的改进版。
 
 对于汽车SRN数据集，他就用的数据集提供的信息。
@@ -85,12 +89,14 @@ $$
 ### 3.4 怎么应对新采样呢？
 
 truncation trick：通过调节 $\alpha$ 来控制多样性和质量。
+
 $$
 \text{truncated } z^\prime = \bar{z} + \alpha(z-\bar{z}), \quad \alpha<1
 \\
 \bar{w} \text{是均值}
 $$
- provides a boost to the Inception Score and FID.
+
+provides a boost to the Inception Score and FID.
 
 
 
