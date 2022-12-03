@@ -24,7 +24,7 @@ Multi-view Stereo (MVS) is the general term given to a group of techniques that 
 - [Pixelwise View Selection for Unstructured Multi-View Stereo](https://demuc.de/papers/schoenberger2016mvs.pdf)  
   **[`ECCV 2016`]**
 
-- [Single-View View Synthesis with Multiplane Images](https://arxiv.org/abs/2004.11364)
+- [Single-View View Synthesis with Multiplane Images](https://arxiv.org/abs/2004.11364)  
   **[`arXiv 2020`]** *Richard Tucker, Noah Snavely*
 
 - [Visibility-aware Multi-view Stereo Network](https://arxiv.org/abs/2008.07928)  
@@ -36,13 +36,13 @@ Multi-view Stereo (MVS) is the general term given to a group of techniques that 
 - [Stable View Synthesis](https://arxiv.org/abs/2011.07233)  
   **[`CVPR 2021`]** *Gernot Riegler, Vladlen Koltun*
 
-- [MVSNeRF: Fast Generalizable Radiance Field Reconstruction from Multi-View Stereo](https://arxiv.org/abs/2103.15595)
+- [MVSNeRF: Fast Generalizable Radiance Field Reconstruction from Multi-View Stereo](https://arxiv.org/abs/2103.15595)  
   **[`ICCV 2021`]** *Anpei Chen, Zexiang Xu, Fuqiang Zhao, Xiaoshuai Zhang, Fanbo Xiang, Jingyi Yu, Hao Su*
 
-- [NerfingMVS: Guided Optimization of Neural Radiance Fields for Indoor Multi-view Stereo](https://arxiv.org/abs/2109.01129)
+- [NerfingMVS: Guided Optimization of Neural Radiance Fields for Indoor Multi-view Stereo](https://arxiv.org/abs/2109.01129)  
   **[`ICCV 2021`]** *Yi Wei, Shaohui Liu, Yongming Rao, Wang Zhao, Jiwen Lu, Jie Zhou*
 
-- [PlaneMVS: 3D Plane Reconstruction from Multi-View Stereo](https://arxiv.org/abs/2203.12082)
+- [PlaneMVS: 3D Plane Reconstruction from Multi-View Stereo](https://arxiv.org/abs/2203.12082)  
   **[`CVPR 2022`]** *Jiachen Liu, Pan Ji, Nitin Bansal, Changjiang Cai, Qingan Yan, Xiaolei Huang, Yi Xu*
 
   
