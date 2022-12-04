@@ -8,11 +8,20 @@ A collection of resources on learning 3D object from 2D images.
 
 ## Introduction
 
+<details><summary><b>中文介绍</b></summary><p>
+这一任务是从一组多视角的图像中，学习出一个3D模型，然后再渲染得到其他视角的图像。因此我们可以将它拆分为两个部分，前一部分叫逆渲染 （inverse rendering），为什么这样叫呢，是因为渲染过程是从3D模型到2D图像的投影，那么反过来，从图像得到模型，就是逆渲染；后一部分就是渲染。
+
+![The novel view synthesis problem](https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/202211281049809.png)
+
+
+
+</p></details>
+
 **[Impact & sustained attention]** 3D reconstruction from multiple RGB images is a fundamental problem in computer vision with various applications in robotics, graphics, animation, virtual reality, and more. Recently, significant advances have been made towards complete reconstruction (geometry and appearance/texture) from an RGB image input.
 
 **[Problem introduction]** The reconstruction is often accompanied by representation, and the whole process is under the assumptions of known materials, viewpoints, and lighting conditions. If the materials, viewpoints, and lighting are not known, this will be generally an ill-posed problem because combinations of geometry, materials, viewpoints, and lighting can produce exactly the same photographs (**ambiguity**). As a result, without further assumptions, no single algorithm can correctly reconstruct the 3D geometry from photographs alone.
 
-**[Old MVS]** Multi-View Stereo (MVS) methods are a classic branch to solve this tough challenge.
+**[Old MVS]** Multi-View Stereo (MVS) methods are a classic branch to solve this tough challenge. It refers to the problem of capturing a scene from a novel viewpoint given a few input images.
 
 **[Novel neural methods]** Beyond methods of ~~traditional representation~~ (voxel, grid, mesh) and ~~relied on 3D supervision~~, the recent popular approaches utilizing neural implicit representation (coordinate-based neural networks) yeild state-of-the-art performance because they tend to produce **smoothness bias of neural networks**. The key idea behind is to use compact, memory efficient multi-layer perceptrons (MLPs) to parameterize implicit shape representations such as occupancy or signed distance fields (SDF). 
 
@@ -46,7 +55,7 @@ The futher problem is recover a 3D shape with texture and mesh from a single vie
 
 - Multi-View 3D Reconstruction
   - Method: [Multi-View Stereo (MVS)](./Multi-View%20Stereo%20(MVS))
-  - Method: [3D representation](./3D%20Representation%20and%20Reconstruction)
+  - Method: [3D Representation](./3D%20Representation%20and%20Reconstruction)
 - [Novel-View Synthesis (NVS)](./Novel-View%20Synthesis%20(NVS))
 - [Single View Reconstruction](./Single%20View%20Reconstruction)
 - [3D-Aware-Generation](./3D-Aware-Generation)
@@ -69,3 +78,4 @@ The futher problem is recover a 3D shape with texture and mesh from a single vie
 
 
 
+consistency principle that “a bulldozer is a bulldozer from any perspective”:

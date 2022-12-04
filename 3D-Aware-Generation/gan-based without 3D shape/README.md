@@ -59,4 +59,3 @@ disentangle pose and identity factors by cross-reconstruction [^Peng et al., 201
 
 
 
-

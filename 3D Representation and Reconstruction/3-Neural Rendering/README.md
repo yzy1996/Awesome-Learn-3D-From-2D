@@ -18,7 +18,11 @@ Related repositories:
 
 ## Introduction
 
-> 
+> neural rendering 包含了 NeRF，指的是用 神经表征和渲染 的一类方法，它是一类方法或者技术的总称。
+>
+> The goal of neural rendering is to project a 3D neural scene representation into one or multiple 2D images.
+>
+> 简单说neural rendering可以涵盖所有新的带neural的技术
 
 
 
@@ -247,3 +251,150 @@ It enables machines to learn to perceive their surroundings based on a represent
 </p></details>
 
 ---
+
+
+
+# Rendering
+
+
+
+这里关心的是神经渲染这一类，因为要和神经表征去搭配。主要的方法是 rasterization and raytracing
+
+- volume rendering
+
+  integrate densities by drawing samples along the viewing rays
+
+- surface rendering
+
+  Differentiable volumetric rendering (DVR)
+
+  Multiview neural surface reconstruction (IDR)
+
+  
+
+## Non-differentiable Rendering
+
+a discrete operation called rasterization
+
+
+
+
+
+## Differentiable Rendering
+
+a fundamental tool in computer graphics that convert 3D models into 2D images.
+
+
+
+neural networks bring "neural rendering" because natural differentiable
+
+
+
+
+
+---
+
+Neural 3d mesh renderer
+
+CVPR 2018
+
+Differentiable Monte Carlo Ray Tracing through Edge Sampling
+
+SIGGRAPH 2018
+
+[Soft Rasterizer: A Differentiable Renderer for Image-based 3D Reasoning](https://arxiv.org/pdf/1904.01786.pdf)  
+Shichen Liu, Tianye Li, Weikai Chen, Hao Li  
+[ICCV 2019] ()
+
+
+
+Opendr: An approximate differentiable renderer
+
+ECCV 2014
+
+
+
+
+
+Neural scene representation and rendering.
+
+Science
+
+[RenderNet: A deep convolutional network for differentiable rendering from 3D shapes](https://arxiv.org/pdf/1806.06575.pdf)  
+Thu Nguyen-Phuoc, Chuan Li, Stephen Balaban, Yong-Liang Yang  
+[NIPS 2018]
+
+
+
+[Face-to-Parameter Translation for Game Character Auto-Creation](https://arxiv.org/pdf/1909.01064.pdf)  
+*Tianyang Shi, Yi Yuan, Changjie Fan, Zhengxia Zou, Zhenwei Shi, Yong Liu*  
+[ICCV 2019]
+
+
+
+
+
+
+
+Dist: Rendering deep implicit signed distance function with differentiable sphere tracing
+
+iterative ray marching to render a DeepSDF decoder
+
+stratified random sampling 
+
+
+
+
+
+## Volume Rendering
+
+a set of $\mathcal{S}$ of sampled points per ray
+
+A ray $x$ emanating from a camera position c in direction v 
+
+x = c + tv 
+
+volume rendering is approximating the integrated light radiance along this ray reaching the camera.
+
+
+
+
+$$
+\text{transparency: } T(t)=\exp \left(-\int_{0}^{t} \sigma(\boldsymbol{x}(s)) d s\right)
+\\
+\text{opacity: } O(t)=1-T(t)
+\\
+\text{PDF: } \tau(t)=\frac{d O}{d t}(t)=\sigma(\boldsymbol{x}(t)) T(t)
+$$
+the volume rendering is the expected light along the ray
+$$
+I(\boldsymbol{c}, \boldsymbol{v})=\int_{0}^{\infty} L(\boldsymbol{x}(t), \boldsymbol{n}(t), \boldsymbol{v}) \tau(t) d t
+$$
+
+
+
+can handle abrupt depth changes 
+
+multiple points along the ray will effect the reconstruction, the gradient signals is full of the space rather than the thin surface.
+
+
+
+
+## Surface Rendering
+
+
+
+
+
+
+
+### Marching Cubes
+
+- [Deep marching cubes: Learning explicit surface representations](http://www.cvlibs.net/publications/Liao2018CVPR.pdf)  
+  **[`CVPR 2018`] (MPI, Zhejiang U)**  
+  *Yiyi Liao, Simon Donné, Andreas Geiger*
+
+- [Marching cubes: A high resolution 3D surface construction algorithm](https://people.eecs.berkeley.edu/~jrs/meshpapers/LorensenCline.pdf)  
+  **[`SIGGRAPH 1987`] (`General Electric Company`)**  
+  *William E. Lorensen, Harvey E. Cline*
+

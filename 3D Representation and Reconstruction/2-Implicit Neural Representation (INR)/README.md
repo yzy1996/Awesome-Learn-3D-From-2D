@@ -7,10 +7,19 @@
 ## 1. Introduction
 
 
-<details><summary>中文介绍</summary><p>
+<details><summary>杂</summary>
+<p>
 
 NeRF 等一系列方法需要稠密的视角输入（50-150张），因此如何松弛这个要求就是需要解决的目标
 大类名称叫 coordinate-based neural models ，具体方法叫 neural implicit functions (parameterized with neural networks)，然后又分化成 SDF, occupancy field, radiance field。positional encoding
+
+implicit representations encode a scene in the weights of a neural network which can be queried at any coordinate to produce these same scene properties
+
+先回顾一下在还没引入 Deep Learning 之前的历史，属于 classic multi-view stereo (**MVS**) methods. They mainly focus on either matching features across views or representing shapes with a voxel grid. The former  approaches need a complex pipeline rquiring additional steps like fusing depth information and meshing. The latter ones are limited to low resolution due to cubic memory requirements.
+
+鉴于此，引入了 neural implicit representations, 完全连续，用起来简单，占用内存小。
+
+SDF 和 occupancy probabulity 这一大类因为训练的 truth ground是真实的3D 数据，和后面的 without 3D supervision 还不太一样。这一类可以被称为 Neural Implicit Surface。
 
 </p></details>
 
@@ -42,6 +51,30 @@ Implicit neural representations are a new and promising method to represent imag
   
 
 ## 3. Literature
+
+#### Occupancy and Signed Distance Function
+
+缺点：bad on sharp areas，需要3D监督信号，因为不需要differentiable renderer
+
+- [Implicit surface representations as layers in neural networks](https://openaccess.thecvf.com/content_ICCV_2019/papers/Michalkiewicz_Implicit_Surface_Representations_As_Layers_in_Neural_Networks_ICCV_2019_paper.pdf)  
+  **[`ICCV 2019`] (`Queensland`)**  
+  *Mateusz Michalkiewicz, Jhony K. Pontes, Dominic Jack, Mahsa Baktashmotlagh, Anders Eriksson*
+- [(IM-NET)Learning Implicit Fields for Generative Shape Modeling](https://arxiv.org/pdf/1812.02822.pdf)  
+  **[`CVPR 2019`] (`Simon Fraser University`)**  
+  *Zhiqin Chen, Hao Zhang*
+- [Occupancy Networks: Learning 3D Reconstruction in Function Space](https://arxiv.org/pdf/1812.03828.pdf)  
+  **[`CVPR 2019`] (`MPI, Google`)**  
+  *Lars Mescheder, Michael Oechsle, Michael Niemeyer, Sebastian Nowozin, Andreas Geiger*
+- [DeepSDF: Learning Continuous Signed Distance Functions for Shape Representation](https://arxiv.org/pdf/1901.05103.pdf)  
+  **[`CVPR 2019`] (`UW, MIT`)**  
+  *Jeong Joon Park, Peter Florence, Julian Straub, Richard Newcombe, Steven Lovegrove*
+- [PIFu: Pixel-Aligned Implicit Function for High-Resolution Clothed Human Digitization](https://arxiv.org/pdf/1905.05172.pdf)  
+  **[`ICCV 2019`] (`USC, Pinscreen`)**  
+  *Shunsuke Saito, Zeng Huang, Ryota Natsume, Shigeo Morishima, Angjoo Kanazawa, Hao Li*
+
+---
+
+
 
 - [Learning Implicit Fields for Generative Shape Modeling](https://arxiv.org/abs/1812.02822)  
   **[`CVPR 2019`]** *Zhiqin Chen, Hao Zhang*  
@@ -98,3 +131,41 @@ Implicit neural representations are a new and promising method to represent imag
 
 - [SOLO: A Simple Framework for Instance Segmentation ](https://arxiv.org/abs/2106.15947)  
   **[`arXiv 2021`]** *Xinlong Wang, Rufeng Zhang, Chunhua Shen, Tao Kong, Lei Li*
+
+
+
+
+
+surface-based, volume-based
+
+下面是用 implicit function + neural rendering 中隐式表征的通用形式：
+
+$$
+F_{\theta}:(\boldsymbol{p}, \boldsymbol{v}) \rightarrow (\boldsymbol{c}, \omega)
+$$
+where $\theta$ is parameters of an underlying neural network, $\boldsymbol{p}$ is the scene color, $\omega$ is the probility density (opacity) at spatial location $\boldsymbol{p}$, $\boldsymbol{v}$ is the ray direction. We can render a 2D image by shooting rays from a pin-hole camera   position $\boldsymbol{p}_0 \in \mathbb{R}^3$ to the 3D scene. The spatial location along the camera ray can be represented by $\boldsymbol{p}(z)=\boldsymbol{p}_{0}+z \cdot \boldsymbol{v}$. Note that $\omega$ is restricted only by $\boldsymbol{p}(z)$ while $\boldsymbol{c}$ is affected by both $\boldsymbol{p}$ and $\boldsymbol{v}$ to model view-dependent color. 
+
+**surface rendering**
+
+assume $\omega(\boldsymbol{p}(z))$ to be Dirac function $\delta(\boldsymbol{p}(z) - \boldsymbol{p}(z^*))$ where $\boldsymbol{p}(z^*)$ is the intersection of the camera ray with the scene geometry.
+
+> 需要找到准确的 surface，才能让颜色保持多角度的一致性
+>
+> 不然会导致模糊
+
+Scene representation networks
+
+Dist: Rendering deep implicit signed distance function with differentiable sphere tracing
+
+Differentiable: volumetric rendering: Learning implicit 3d representations without 3d supervision
+
+**volume rendering**
+$$
+C\left(\boldsymbol{p}_{0}, \boldsymbol{v}\right)=\int_{0}^{+\infty} \omega(\boldsymbol{p}(z)) \cdot \boldsymbol{c}(\boldsymbol{p}(z), \boldsymbol{v}) d z, \quad \text { where } \int_{0}^{+\infty} \omega(\boldsymbol{p}(z)) d z=1
+$$
+
+> Volume rendering methods need to sample a high number of points along the rays for color accumulation to achieve high quality rendering. This rendering is realized through integral projection.
+
+Neural volumes: Learning dynamic renderable volumes from images
+
+Nerf: Representing scenes as neural radiance fields for view synthesis

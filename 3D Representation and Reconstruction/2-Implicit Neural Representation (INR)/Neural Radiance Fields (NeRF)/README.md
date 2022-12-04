@@ -164,7 +164,9 @@ While NeRF does not require object masks for training due to its volumetric radi
 
 **surface**
 
-
+- [UNISURF: Unifying Neural Implicit Surfaces and Radiance Fields for Multi-View Reconstruction](https://arxiv.org/pdf/2104.10078.pdf)  
+  **[`Arxiv 2021`] (`MPI`)**  
+  *Michael Oechsle, Songyou Peng, Andreas Geiger*
 
 [CityNeRF: Building NeRF at City Scale](https://arxiv.org/pdf/2112.05504.pdf)  
 *Yuanbo Xiangli, Linning Xu, Xingang Pan, Nanxuan Zhao, Anyi Rao, Christian Theobalt, Bo Dai, Dahua Lin*  

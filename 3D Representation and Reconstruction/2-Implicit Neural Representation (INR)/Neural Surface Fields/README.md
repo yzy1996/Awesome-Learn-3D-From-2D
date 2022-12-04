@@ -101,6 +101,27 @@ Zero level set $S = \{p: f(p) = 0 \} \sub \mathbb{R}^3$ is the estimated surface
 
 
 
+Regard the object surface as a 2-dimensional manifold embedded in the 3-dimensional space.
+
+- [AtlasNet: A Papier-Mâché Approach to Learning 3D Surface Generation](https://arxiv.org/pdf/1802.05384.pdf)  
+  **[`CVPR 2018`] (`LIGM, Adobe`)**  
+  *Thibault Groueix, Matthew Fisher, Vladimir G. Kim, Bryan C. Russell, Mathieu Aubry*
+- [Learning to Infer Implicit Surfaces without 3D Supervision](https://arxiv.org/pdf/1911.00767.pdf)  
+  **[`NeurIPS 2019`] (`USC`)**  
+  *Shichen Liu, Shunsuke Saito, Weikai Chen, Hao Li*
+- [Scene Representation Networks: Continuous 3D-Structure-Aware Neural Scene Representations](https://arxiv.org/pdf/1906.01618.pdf)  
+  **[`NeurIPS 2019`] (`Stanford`)**  
+  *Vincent Sitzmann, Michael Zollhöfer, Gordon Wetzstein*
+- [Analytic Marching: An Analytic Meshing Solution from Deep Implicit Surface Networks]()  
+  **[`ICML 2020`] (`SCUT`)**  
+  *Jiabao Lei, Kui Jia*
+
+- [Sdfdiff: Differentiable rendering of signed distance fields for 3d shape optimization](https://arxiv.org/pdf/1912.07109.pdf)  
+  **[`CVPR 2020`] (`University of Maryland`)**  
+  *Yue Jiang, Dantong Ji, Zhizhong Han, Matthias Zwicker*
+
+
+
 #### + Masks (difficult to optimize)
 
 - <span id="DVR"></span>
@@ -144,7 +165,9 @@ Zero level set $S = \{p: f(p) = 0 \} \sub \mathbb{R}^3$ is the estimated surface
 
 
 
-<i>If warmup is the answer, what is the question?</i>
+<i>这里补充一点是，可以用 Marching cubes 从SDF 得到Mesh</i>
 
 <p style="color:blue;">Blue text</p>
+
+
 

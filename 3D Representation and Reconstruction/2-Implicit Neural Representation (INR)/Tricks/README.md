@@ -1,4 +1,13 @@
-# Some tools/tricks 
+# Some tools/tricks
+
+**Issue**:
+
+standard ReLU MLPs fail to adequately represent fine details in these complex low-dimensional signals due to a spectral bias
+
+**Solution**:
+
+- replace the ReLU activations with sine functions
+- lift the input coordinates into a Fourier feature space 
 
 
 
@@ -31,6 +40,10 @@ The major drawback of training coordinate-MLPs with raw input coordinates is the
 Fourier features let networks learn high frequency functions in low dimensional domains
 
 
+
+spatial coordinate information is insufficient for the network to learn a continuous 3D representation with limited input.
+
+what we can do is to enrich the representation of each coordinate and compensate for the missing information when only sparse views are provided. It’s pritical to overcome this drawback by 
 
 
 

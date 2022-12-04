@@ -4,6 +4,12 @@
 
 
 
+从单张图像重建整个3D场景是很重要的一个话题，more details see [file](./Single-View-Reconstruction)
+
+也可以叫 single image reconstruction，对一个 3D 目标，单个图像就是单个视角
+
+
+
 Impact: 3D scene analysis, robot navigation, and virtual/augmented reality
 
 
