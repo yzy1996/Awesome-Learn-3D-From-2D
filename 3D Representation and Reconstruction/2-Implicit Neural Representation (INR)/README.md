@@ -143,11 +143,12 @@ surface-based, volume-based
 $$
 F_{\theta}:(\boldsymbol{p}, \boldsymbol{v}) \rightarrow (\boldsymbol{c}, \omega)
 $$
-where $\theta$ is parameters of an underlying neural network, $\boldsymbol{p}$ is the scene color, $\omega$ is the probility density (opacity) at spatial location $\boldsymbol{p}$, $\boldsymbol{v}$ is the ray direction. We can render a 2D image by shooting rays from a pin-hole camera   position $\boldsymbol{p}_0 \in \mathbb{R}^3$ to the 3D scene. The spatial location along the camera ray can be represented by $\boldsymbol{p}(z)=\boldsymbol{p}_{0}+z \cdot \boldsymbol{v}$. Note that $\omega$ is restricted only by $\boldsymbol{p}(z)$ while $\boldsymbol{c}$ is affected by both $\boldsymbol{p}$ and $\boldsymbol{v}$ to model view-dependent color. 
+
+where $\theta$ is parameters of an underlying neural network, $\boldsymbol{p}$ is the scene color, $\omega$ is the probility density (opacity) at spatial location $\boldsymbol{p}$, $\boldsymbol{v}$ is the ray direction. We can render a 2D image by shooting rays from a pin-hole camera position $\boldsymbol{p_0} \in \mathbb{R}^{3}$ to the 3D scene. The spatial location along the camera ray can be represented by $\boldsymbol{p}(z)=\boldsymbol{p}_{0}+z \cdot \boldsymbol{v}$. Note that $\omega$ is restricted only by $\boldsymbol{p}(z)$ while $\boldsymbol{c}$ is affected by both $\boldsymbol{p}$ and $\boldsymbol{v}$ to model view-dependent color. 
 
 **surface rendering**
 
-assume $\omega(\boldsymbol{p}(z))$ to be Dirac function $\delta(\boldsymbol{p}(z) - \boldsymbol{p}(z^*))$ where $\boldsymbol{p}(z^*)$ is the intersection of the camera ray with the scene geometry.
+assume $\omega(\boldsymbol{p}(z))$ to be Dirac function $\delta(\boldsymbol{p}(z)-\boldsymbol{p}(z^{\*}))$ where $\boldsymbol{p}(z^{\*})$ is the intersection of the camera ray with the scene geometry.
 
 > 需要找到准确的 surface，才能让颜色保持多角度的一致性
 >
@@ -160,6 +161,7 @@ Dist: Rendering deep implicit signed distance function with differentiable spher
 Differentiable: volumetric rendering: Learning implicit 3d representations without 3d supervision
 
 **volume rendering**
+
 $$
 C\left(\boldsymbol{p}_{0}, \boldsymbol{v}\right)=\int_{0}^{+\infty} \omega(\boldsymbol{p}(z)) \cdot \boldsymbol{c}(\boldsymbol{p}(z), \boldsymbol{v}) d z, \quad \text { where } \int_{0}^{+\infty} \omega(\boldsymbol{p}(z)) d z=1
 $$
