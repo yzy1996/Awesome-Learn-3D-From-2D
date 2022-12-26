@@ -69,9 +69,30 @@ To ease the problem, researchers normally learn a 3D prior from a collection wit
 
 > **Problem settings:**
 
+
+
+shape (grey entity) and appearance (colorful texture)
+
+> 乐高这种是内部也有颜色，而一般的材料我们都是通过刷漆的方式
+
+
+
+Given an unstructured image collection within a category (e.g., face), the goal of 3D-aware image generation is to learn a model that generates photo-realistic, high-resolution images while enabling explicit control of the viewpoint. To this end, the model typically consists of 1) a learned neural fields as a 3D object generator, 2) a deterministic neural renderer projecting 3D object into 2D images, and 3) a learned 2D discriminator for distinguishing between real and generated data.
+
+Let $G_{\theta}$ denotes the 3D generator parameterized by $\theta$ and conditioned on a latent code $z \sim \mathcal{N}(\mathbf{0} , \mathbf{I})$.
+Different latent code $z$ determine different 3D objects with shape and appearance.
+
+Rather than directly map $z$ to the image like GAN's generator, this 3D generator store the certain quantity (e.g. occupancy) of the object and then query the coordinate to obtain it.
+
+
+
 Given unstructured 2D image collections, 3D-aware image generation methods aim to learn a generative model that can explicitly control the camera viewpoint of the generated content. The generator G which takes a random noise $z$ and a camera pose $\theta$ as input, and outputs an image $I$ under pose $\theta$:
 
 <div align=center><img width="300" src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/mylatex20220419_011353.svg"/></div>
+
+
+
+
 
 **The goal is to** achieve parametric control and photo-realistic synthesis.
 
