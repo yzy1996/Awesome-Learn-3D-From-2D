@@ -31,3 +31,12 @@ From a data structure point of view, a point cloud is an unordered set of vector
 - [Large-scale point cloud semantic segmentation with superpoint graphs](https://arxiv.org/pdf/1711.09869.pdf)  
   **[`CVPR 2018`] (`Universite Paris-Est`)**  
   *Loic Landrieu, Martin Simonovsky*
+
+
+
+
+
+## Code
+
+[Point Cloud Utils](https://www.fwilliams.info/point-cloud-utils/) is an easy-to-use Python library for processing and manipulating 3D point clouds and meshes.
+

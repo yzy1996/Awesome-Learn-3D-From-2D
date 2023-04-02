@@ -239,6 +239,10 @@ radiance fields-based methods have higher quality and better 3D consistency but 
 - [EpiGRAF: Rethinking training of 3D GANs](https://arxiv.org/abs/2206.10535)  
   *Ivan Skorokhodov, Sergey Tulyakov, Yiqun Wang, Peter Wonka*  
   **[`NeurIPS 2022`]**
+  
+- [3D-aware Conditional Image Synthesis](https://arxiv.org/abs/2302.08509)  
+  **[`CVPR 2023`]** *Kangle Deng, Gengshan Yang, Deva Ramanan, Jun-Yan Zhu*
+
 
 
 
@@ -280,6 +284,8 @@ radiance fields-based methods have higher quality and better 3D consistency but 
 - [Leveraging 2D Data to Learn Textured 3D Mesh Generation](https://arxiv.org/abs/2004.04180)  
   *Paul Henderson, Vagia Tsiminaki, Christoph H. Lampert*  
   **[`CVPR 2020`]**
+  
+- meshdiffusion
 
 
 

@@ -50,6 +50,8 @@ Neural Radiance Field (NeRF)
 
 
 
+Multi-view generation from a given single view is a significant, yet challenging problem with broad applications in the field of virtual reality and robotics.
+
 
 
 **The goal of novel view synthesis**: is to generate photo-realistic images of the same scene at novel viewpoints given a set (one or few) of posed images of a scene. A more challenging problem is NVS given just a single view. 
