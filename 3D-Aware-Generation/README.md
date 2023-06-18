@@ -242,6 +242,10 @@ radiance fields-based methods have higher quality and better 3D consistency but 
   
 - [3D-aware Conditional Image Synthesis](https://arxiv.org/abs/2302.08509)  
   **[`CVPR 2023`]** *Kangle Deng, Gengshan Yang, Deva Ramanan, Jun-Yan Zhu*
+  
+- [3D generation on ImageNet](http://arxiv.org/abs/2303.01416)
+  **[`ICLR 2023`]** *Ivan Skorokhodov, Aliaksandr Siarohin, Yinghao Xu, Jian Ren, Hsin-Ying Lee, Peter Wonka, Sergey Tulyakov*
+
 
 
 
@@ -285,7 +289,9 @@ radiance fields-based methods have higher quality and better 3D consistency but 
   *Paul Henderson, Vagia Tsiminaki, Christoph H. Lampert*  
   **[`CVPR 2020`]**
   
-- meshdiffusion
+- [MeshDiffusion Score-based Generative 3D Mesh Modeling](http://arxiv.org/abs/2303.08133)
+  **[`ICLR 2023`]** *Zhen Liu, Yao Feng, Michael J. Black, Derek Nowrouzezahrai, Liam Paull, Weiyang Liu*
+
 
 
 
