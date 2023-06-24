@@ -1,11 +1,12 @@
 <h1 align="center">awesome 3D Diffusion</h1>
 
-<div align="center">
 ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 ![PR's Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
-</div>
+
 
 A curated list of resources for Diffusion Models with 3D.
+
+![图片 1](https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/202306241759169.png)
 
 
 
@@ -26,7 +27,7 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 ## Table of Contents
 
 - [Introduction](#Introduction)
-- [Literature](Literature)
+- [Literature](#Literature)
   - DM for Implicit
   - DM for Point Clouds
   - DM for Mesh
@@ -35,48 +36,30 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 
 ## Introduction
 
-这是一个直接将2D Diffusion Model迁移到3D生成的直接想法。最早的结合是和Point clouds（PointNet），然后发展到隐式表征。首先要很清晰Diffusion Model的原理，迁移到3D的主要改变是将2D U-Net 变成 3D U-Net。
+**这是一条将2D Diffusion Model迁移到3D生成的康庄大道**，2021年开始陆续出现了借助[GAN](https://github.com/yzy1996/Awesome-GANs)|[VAE](https://github.com/yzy1996/Awesome-Generative-Model/tree/main/1-Variational%20AutoEncoder%20(VAE)) 做 [3D-aware Generation](https://github.com/yzy1996/Awesome-Learn-3D-From-2D/tree/main/3D-Aware-Generation)，2022年[Diffusion Model](https://github.com/yzy1996/Awesome-Generative-Model/tree/main/2-Diffusion%20Model)开始席卷[2D Generation](https://github.com/yzy1996/Awesome-GANs)，那么一个很自然而然的想法就是[3D Diffusion](https://github.com/yzy1996/Awesome-Learn-3D-From-2D/tree/main/Diffusion%2B3D)。
 
-生成要是可以condition类别的，
+谈及3D数据，那么一个绕不开的话题就是3D表征方式，主流的包括：voxels, point clouds, meshes, occupancy grids, radiance, etc. 第一个工作就是利用的点云表征，现在已经逐渐覆盖了所有表征范式。另一个突破点就是训练数据，这个和2D生成的发展类似（也就是如何利用最少的监督信息），早期的工作还是需要3D数据监督的，往后的发展肯定就是完全无监督的2D图像训练。
 
-SDF 可以看成是 point cloud 的改进版，
+几个核心的技术点：
 
-- conditional and unconditional diffusion 
-- 2D - 3D Representation 
-- 3D-aware Generation
+- Pure Diffusion Model (conditional and unconditional diffusion)
+- Backbone Framework (2D U-Net -> 3D U-Net)
+- 2D - 3D Representation and 3D-aware Generation
 
-
-
-这个方向的目的是 **generate high-fidelity 3D shape**
+这个方向的目标是 **用2D图像数据训练生成高质量的3D形状 (generate high-fidelity 3D shape with 2D training data).**
 
 
 
-**Memory Issues**：要生成高质量的结果就会存在这个问题，那么可以拆分为 生成+超分辨率 两步来做。
+还要考虑的几个问题 (Issues)：
+
+- 内存占用。这是生成高质量结果带来的计算资源问题，一般可以拆分为 生成+超分辨率 两步来缓解，也可以利用混合表征形式 (hybrid explicit-implicit feature grid)。
+- 表征结果样式。最终生成的形状用什么表示呢，continuous meshes 是比较好的选择，但其实主要想要的就是连续光滑且逼真，利用现有技术使得表征之间也是可以相互转化的。
+- 3D一致性。这个只要构建的是 3D model 就行。
 
 
 
-continuous surfaces of 3D shapes
-
-reconstruct continuous meshes from point clouds
-
-
-
-
-
-3D model: representation methods – a hybrid explicit-implicit feature grid
-
-
-
-Diffusion的作用是根据文本生成相应视角和内容的图片
-
-事先使用2D生成模型拟合2D数据的多峰分布，再用其优化NeRF表示
-
-用Diffusion优化NeRF，用Diffusion模型来重建NeRF看不到的细节，用NeRF来明确Diffusion模型对3D的感知。
-
-调研了一阵子，稍微总结下3D表示+2D Diffusion做3D任务的四个流派：
-
-用Diffusion优化3D隐式场（其中Diffusion可以是预训练的或者和3D隐式场联合训练的），特别是NeRF相关工作，例如DreamFusion和SparseFusion；
-
+借助[参考2](https://zhuanlan.zhihu.com/p/592626748)，总结下3D表示+2D Diffusion做3D任务的四个流派：
+- 用Diffusion优化3D隐式场（其中Diffusion可以是预训练的或者和3D隐式场联合训练的），特别是NeRF相关工作，例如DreamFusion和SparseFusion；Diffusion的作用是根据文本生成相应视角和内容的图片，事先使用2D生成模型拟合2D数据的多峰分布，再用其优化NeRF表示。用Diffusion优化NeRF，用Diffusion模型来重建NeRF看不到的细节，用NeRF来明确Diffusion模型对3D的感知。
 - 使用3D Unet定制3D Diffusion，特别是point cloud相关工作；
 - 把3D表示拆解并且重新拼接，变成超多通道2D图像，直接复用2D Diffusion，特别是Triplane相关工作，例如3D Neural Field Generation using Triplane Diffusion；
 - 把2D Diffusion的Unet()换成一个renderer(encoder())的结构，即间接引入3D约束，例如RenderDiffusion；
@@ -86,13 +69,10 @@ Diffusion的作用是根据文本生成相应视角和内容的图片
 
 ## 有哪些任务
 
-- Reconstructing the 3D shape of an object from a singleRGB image
-- unconditional shape generation or completion
-- Sparse-view Reconstruction
-
-text-to-shape synthesis
-
-
+- Reconstructing the 3D shape of an object from a single RGB image
+- Unconditional shape generation or completion
+- Sparse-view reconstruction
+- 3D text-to-shape synthesis
 
 
 
@@ -103,24 +83,6 @@ text-to-shape synthesis
   > different views of the same object with known cameras, for example, obtained by means of structure from motion.
 - image | video
 - synthetic data | real-world data
-
-
-
-## 几个直观的待解决的点
-
-- 缺失的多视角信息怎么弥补：
-  - .
-- 3D 一致性 只要构建的是 3D model 就行
-
-
-
-主要看Diffusion在里面起到的作用，和怎么实现的
-
-
-
-voxel grid 和 pixel 直接类比，将 2D Unet 直接迁移到 3D-Unet
-
-<img src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/202306081048497.png" alt="image-20230608104129451" style="zoom:50%;" />
 
 
 
@@ -173,14 +135,6 @@ voxel grid 和 pixel 直接类比，将 2D Unet 直接迁移到 3D-Unet
 
 a diffusion model $\mathbb{R}^{3N} \mapsto \mathbb{R}^{3N}$ learn from a spherical ball into a recongnizable object.
 
-> **Details**
-
-$T(x)$ donates a stochastic data augmentation function. $D(x)$ donates the last layer before the activation function. The proposed regularization is given by:
-
-$$
-\operatorname{argmin}_{\theta} \mathcal{L}(\theta)=\mathbb{E}_{\mathbf{z}, \mathbf{y}, \alpha}\left[\left(A\left(G\left(T_{\theta}(\mathbf{z}, \alpha), \mathbf{y}\right)\right)-(A(G(\mathbf{z}, \mathbf{y}))+\alpha)\right)^{2}\right]
-$$
-
 </p>
 </details>
 
@@ -203,8 +157,7 @@ $$
 
 
 
-
-## Related Project
+## Related
 
 https://github.com/yuchenlichuck/awesome-3D-Diffusion
 
