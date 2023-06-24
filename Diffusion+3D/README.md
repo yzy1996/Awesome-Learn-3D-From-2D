@@ -67,7 +67,7 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 
 
 
-## 有哪些任务
+### 有哪些任务
 
 - Reconstructing the 3D shape of an object from a single RGB image
 - Unconditional shape generation or completion
@@ -76,7 +76,7 @@ Feedback and contributions are welcome! If you think I have missed out on someth
 
 
 
-## 输入的数据
+### 输入的数据
 
 - posed 2D image | unstructured 2D image
 
