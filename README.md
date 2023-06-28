@@ -62,17 +62,11 @@ The futher problem is recover a 3D shape with texture and mesh from a single vie
 ### Limitations
 
 - large and more complex scenes
-
 - scenes captured from sparse viewpoints
-
 - the core is ambiguities.
-
 - 3D semantic reconstruction
-
 - instance reconstruction
 
 
+[![Star History Chart](https://api.star-history.com/svg?repos=yzy1996/Awesome-Learn-3D-From-2D&type=Date)](https://star-history.com/#yzy1996/Awesome-Learn-3D-From-2D&Date)
 
-
-
-[![Star History Chart](https://api.star-history.com/svg?repos=yzy1996/Awesome-Learn-3D-From-2D&type=Date)](https://star-history.com/#star-history/star-history&Date)
