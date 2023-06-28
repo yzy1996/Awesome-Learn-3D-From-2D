@@ -68,5 +68,7 @@ The futher problem is recover a 3D shape with texture and mesh from a single vie
 - instance reconstruction
 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=yzy1996/Awesome-Learn-3D-From-2D&type=Date)](https://star-history.com/#yzy1996/Awesome-Learn-3D-From-2D&Date)
+<img src="https://api.star-history.com/svg?repos=yzy1996/Awesome-Learn-3D-From-2D&type=Date">
+
+<p align="center"><strong>Thank you for your support.</strong></p>
 
