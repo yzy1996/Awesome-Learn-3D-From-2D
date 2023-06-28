@@ -4,17 +4,12 @@ A collection of resources on learning 3D object from 2D images.
 
 > Alias: image-based 3D reconstruction / Rendering
 
-
+![The novel view synthesis problem](https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/202211281049809.png)（figure from https://yconquesty.github.io/)
 
 ## Introduction
 
 <details><summary><b>中文介绍</b></summary><p>
 这一任务是从一组多视角的图像中，学习出一个3D模型，然后再渲染得到其他视角的图像。因此我们可以将它拆分为两个部分，前一部分叫逆渲染 （inverse rendering），为什么这样叫呢，是因为渲染过程是从3D模型到2D图像的投影，那么反过来，从图像得到模型，就是逆渲染；后一部分就是渲染。
-
-![The novel view synthesis problem](https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/202211281049809.png)
-
-
-
 </p></details>
 
 **[Impact & sustained attention]** 3D reconstruction from multiple RGB images is a fundamental problem in computer vision with various applications in robotics, graphics, animation, virtual reality, and more. Recently, significant advances have been made towards complete reconstruction (geometry and appearance/texture) from an RGB image input.
@@ -37,7 +32,7 @@ given a set of photographs of an object or a scene, estimate the most likely 3D 
 
 <img src="https://raw.githubusercontent.com/yzy1996/Image-Hosting/master/20211121113332.png" alt="image from" style="zoom:50%;" />
 
-Multi-View Stereo: A tutorial
+（figure from 'Multi-View Stereo: A tutorial')
 
 Let $\mathbf{I} = \{I_k, k=1, \dots, n\}$ be a set of $n \ge 1$ RGB images of one or multiple objects $X$. 3D reconstruction can be summarized as the process of learning a predictor $f_\theta$ that can infer a shape $\hat{X}$ that is as close as possible to the unknown shape $X$.
 
@@ -78,37 +73,6 @@ The futher problem is recover a 3D shape with texture and mesh from a single vie
 
 
 
-consistency principle that “a bulldozer is a bulldozer from any perspective”:
 
 
-
-### 学习资料
-
-[Tübingen Machine Learning](https://www.youtube.com/@TubingenML) Computer Vision - Lecture
-
-https://www.youtube.com/playlist?list=PL05umP7R6ij35L2MHGzis8AEHz7mg381_
-
-其中的9.1-9.4讲解了具体过程。
-
-https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/autonomous-vision/lectures/computer-vision/
-
-
-
-
-
-### Data
-
-SPARF: Large-Scale Learning of 3D Sparse Radiance Fields from Few InputImages
-
-
-
-
-
-3D point
-
-two fundamental representation modalities of 3D object: 3D point clouds and multi-view 2D images 
-
-
-
-point cloud irregular geometric signals
-
+[![Star History Chart](https://api.star-history.com/svg?repos=yzy1996/Awesome-Learn-3D-From-2D&type=Date)](https://star-history.com/#star-history/star-history&Date)
