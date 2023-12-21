@@ -11,6 +11,7 @@ A collection of resources on learning 3D object from 2D images.
 <details><summary><b>中文介绍</b></summary><p>
 这一任务是从一组多视角的图像中，学习出一个3D模型，然后再渲染得到其他视角的图像。因此我们可以将它拆分为两个部分，前一部分叫逆渲染 （inverse rendering），为什么这样叫呢，是因为渲染过程是从3D模型到2D图像的投影，那么反过来，从图像得到模型，就是逆渲染；后一部分就是渲染。
 </p></details>
+
 **[Impact & sustained attention]** 3D reconstruction from multiple RGB images is a fundamental problem in computer vision with various applications in robotics, graphics, animation, virtual reality, and more. Recently, significant advances have been made towards complete reconstruction (geometry and appearance/texture) from an RGB image input.
 
 **[Problem introduction]** The reconstruction is often accompanied by representation, and the whole process is under the assumptions of known materials, viewpoints, and lighting conditions. If the materials, viewpoints, and lighting are not known, this will be generally an ill-posed problem because combinations of geometry, materials, viewpoints, and lighting can produce exactly the same photographs (**ambiguity**). As a result, without further assumptions, no single algorithm can correctly reconstruct the 3D geometry from photographs alone.
